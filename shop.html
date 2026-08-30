@@ -11,7 +11,8 @@
     <title>Valora | Shop</title>
 
     <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
     <link rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -23,9 +24,9 @@
 
     <style>
 
-        /* =========================================
+        /* =====================================================
            RESET
-           ========================================= */
+           ===================================================== */
 
         * {
             margin: 0;
@@ -34,11 +35,12 @@
         }
 
 
-        /* =========================================
+        /* =====================================================
            VARIABLES
-           ========================================= */
+           ===================================================== */
 
         :root {
+
             --primary: #5B2A86;
             --primary-dark: #431D65;
             --primary-light: #F3ECF8;
@@ -51,15 +53,18 @@
 
             --border: #E9E4EC;
 
-            --shadow: 0 10px 30px rgba(40, 20, 55, 0.07);
+            --shadow:
+                0 10px 30px
+                rgba(40, 20, 55, 0.07);
         }
 
 
-        /* =========================================
+        /* =====================================================
            GLOBAL
-           ========================================= */
+           ===================================================== */
 
         body {
+
             font-family: 'Inter', sans-serif;
 
             background: var(--background);
@@ -71,6 +76,7 @@
 
 
         a {
+
             text-decoration: none;
 
             color: inherit;
@@ -80,22 +86,25 @@
         button,
         input,
         select {
+
             font-family: inherit;
         }
 
 
-        /* =========================================
+        /* =====================================================
            NAVBAR
-           ========================================= */
+           ===================================================== */
 
         nav {
+
             height: 76px;
 
             padding: 0 7%;
 
             background: var(--white);
 
-            border-bottom: 1px solid var(--border);
+            border-bottom:
+                1px solid var(--border);
 
             display: flex;
 
@@ -111,7 +120,10 @@
         }
 
 
+        /* LOGO */
+
         .logo {
+
             color: var(--primary);
 
             font-size: 25px;
@@ -122,7 +134,10 @@
         }
 
 
+        /* NAV LINKS */
+
         .nav-links {
+
             display: flex;
 
             align-items: center;
@@ -134,6 +149,7 @@
 
 
         .nav-links a {
+
             color: #625B67;
 
             font-size: 13px;
@@ -147,13 +163,15 @@
 
 
         .nav-links a:hover {
+
             color: var(--primary);
         }
 
 
-        /* Active Shop Link */
+        /* ACTIVE SHOP */
 
         .nav-links .active {
+
             color: var(--primary);
 
             font-weight: 600;
@@ -161,6 +179,7 @@
 
 
         .nav-links .active::after {
+
             content: "";
 
             position: absolute;
@@ -179,7 +198,10 @@
         }
 
 
+        /* NAV ACTIONS */
+
         .nav-actions {
+
             display: flex;
 
             align-items: center;
@@ -188,10 +210,14 @@
         }
 
 
+        /* LOGIN */
+
         .login {
+
             padding: 9px 17px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 6px;
 
@@ -206,13 +232,19 @@
 
 
         .login:hover {
+
             border-color: var(--primary);
 
             color: var(--primary);
         }
 
 
+        /* =====================================================
+           CART BUTTON
+           ===================================================== */
+
         .cart {
+
             width: 38px;
 
             height: 38px;
@@ -231,31 +263,72 @@
 
             font-size: 17px;
 
+            position: relative;
+
             transition: 0.2s;
         }
 
 
         .cart:hover {
+
             background: var(--primary);
 
             color: white;
         }
 
 
-        /* =========================================
+        /* CART COUNT */
+
+        #cartCount {
+
+            position: absolute;
+
+            top: -5px;
+
+            right: -5px;
+
+            min-width: 18px;
+
+            height: 18px;
+
+            padding: 0 5px;
+
+            background: var(--primary);
+
+            color: white;
+
+            border-radius: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 9px;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
            PAGE HEADER
-           ========================================= */
+           ===================================================== */
 
         .page-header {
+
             background: var(--white);
 
-            padding: 65px 7% 60px;
+            padding:
+                65px 7% 60px;
 
-            border-bottom: 1px solid var(--border);
+            border-bottom:
+                1px solid var(--border);
         }
 
 
         .breadcrumb {
+
             margin-bottom: 18px;
 
             font-size: 11px;
@@ -265,6 +338,7 @@
 
 
         .breadcrumb span {
+
             color: var(--primary);
 
             font-weight: 600;
@@ -272,6 +346,7 @@
 
 
         .page-header h1 {
+
             font-size: 42px;
 
             letter-spacing: -1.5px;
@@ -281,6 +356,7 @@
 
 
         .page-header p {
+
             color: var(--muted);
 
             font-size: 14px;
@@ -289,30 +365,34 @@
         }
 
 
-        /* =========================================
+        /* =====================================================
            SHOP CONTAINER
-           ========================================= */
+           ===================================================== */
 
         .shop-container {
+
             max-width: 1400px;
 
             margin: auto;
 
-            padding: 55px 7% 90px;
+            padding:
+                55px 7% 90px;
 
             display: grid;
 
-            grid-template-columns: 220px 1fr;
+            grid-template-columns:
+                220px 1fr;
 
             gap: 55px;
         }
 
 
-        /* =========================================
+        /* =====================================================
            SIDEBAR
-           ========================================= */
+           ===================================================== */
 
         .sidebar {
+
             position: sticky;
 
             top: 110px;
@@ -322,20 +402,24 @@
 
 
         .sidebar-section {
+
             padding-bottom: 28px;
 
             margin-bottom: 28px;
 
-            border-bottom: 1px solid var(--border);
+            border-bottom:
+                1px solid var(--border);
         }
 
 
         .sidebar-section:last-child {
+
             border-bottom: none;
         }
 
 
         .sidebar h3 {
+
             font-size: 12px;
 
             text-transform: uppercase;
@@ -347,16 +431,19 @@
 
 
         .category-list {
+
             list-style: none;
         }
 
 
         .category-list li {
+
             margin-bottom: 12px;
         }
 
 
         .category-list a {
+
             display: flex;
 
             justify-content: space-between;
@@ -370,11 +457,13 @@
 
 
         .category-list a:hover {
+
             color: var(--primary);
         }
 
 
         .category-list .active {
+
             color: var(--primary);
 
             font-weight: 600;
@@ -382,17 +471,19 @@
 
 
         .category-count {
+
             color: #A49DA8;
 
             font-size: 11px;
         }
 
 
-        /* =========================================
+        /* =====================================================
            PRICE FILTER
-           ========================================= */
+           ===================================================== */
 
         .price-filter {
+
             display: flex;
 
             align-items: center;
@@ -402,11 +493,13 @@
 
 
         .price-filter input {
+
             width: 90px;
 
             padding: 10px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 5px;
 
@@ -419,20 +512,23 @@
 
 
         .price-filter input:focus {
+
             border-color: var(--primary);
         }
 
 
         .price-dash {
+
             color: #AAA2AE;
         }
 
 
-        /* =========================================
-           PRODUCTS AREA
-           ========================================= */
+        /* =====================================================
+           PRODUCTS TOP
+           ===================================================== */
 
         .shop-top {
+
             display: flex;
 
             align-items: center;
@@ -444,6 +540,7 @@
 
 
         .results {
+
             color: var(--muted);
 
             font-size: 13px;
@@ -451,14 +548,17 @@
 
 
         .results strong {
+
             color: var(--text);
         }
 
 
         .sort {
+
             padding: 10px 13px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 5px;
 
@@ -475,31 +575,36 @@
 
 
         .sort:focus {
+
             border-color: var(--primary);
         }
 
 
-        /* =========================================
+        /* =====================================================
            PRODUCT GRID
-           ========================================= */
+           ===================================================== */
 
         .products {
+
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 25px;
         }
 
 
-        /* =========================================
+        /* =====================================================
            PRODUCT CARD
-           ========================================= */
+           ===================================================== */
 
         .product {
+
             background: var(--white);
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 8px;
 
@@ -510,20 +615,25 @@
 
 
         .product:hover {
-            transform: translateY(-5px);
 
-            box-shadow: var(--shadow);
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--shadow);
         }
 
 
-        /* =========================================
+        /* =====================================================
            PRODUCT IMAGE
-           ========================================= */
+           ===================================================== */
 
         .product-image {
+
             height: 255px;
 
-            background: var(--primary-light);
+            background:
+                var(--primary-light);
 
             display: flex;
 
@@ -540,13 +650,15 @@
 
 
         .image-placeholder {
+
             width: 75px;
 
             height: 75px;
 
             border-radius: 50%;
 
-            background: rgba(255,255,255,0.65);
+            background:
+                rgba(255,255,255,0.65);
 
             display: flex;
 
@@ -562,9 +674,12 @@
         }
 
 
-        /* Wishlist */
+        /* =====================================================
+           WISHLIST
+           ===================================================== */
 
         .wishlist {
+
             position: absolute;
 
             top: 14px;
@@ -577,9 +692,11 @@
 
             border-radius: 50%;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-            background: rgba(255,255,255,0.95);
+            background:
+                rgba(255,255,255,0.95);
 
             display: flex;
 
@@ -598,24 +715,29 @@
 
 
         .wishlist:hover {
+
             color: var(--primary);
 
-            border-color: var(--primary);
+            border-color:
+                var(--primary);
 
-            transform: scale(1.05);
+            transform:
+                scale(1.05);
         }
 
 
-        /* =========================================
+        /* =====================================================
            PRODUCT INFO
-           ========================================= */
+           ===================================================== */
 
         .product-info {
+
             padding: 20px;
         }
 
 
         .product-category {
+
             color: #918797;
 
             font-size: 10px;
@@ -629,6 +751,7 @@
 
 
         .product-name {
+
             color: var(--text);
 
             font-size: 14px;
@@ -642,6 +765,7 @@
 
 
         .rating {
+
             color: #A77B22;
 
             font-size: 11px;
@@ -653,6 +777,7 @@
 
 
         .product-bottom {
+
             display: flex;
 
             align-items: center;
@@ -662,6 +787,7 @@
 
 
         .price {
+
             color: var(--primary);
 
             font-size: 16px;
@@ -670,12 +796,20 @@
         }
 
 
+        /* =====================================================
+           ADD TO CART BUTTON
+           ===================================================== */
+
         .add-btn {
+
             padding: 8px 12px;
 
-            border: 1px solid #D8CBE0;
+            border:
+                1px solid #D8CBE0;
 
             border-radius: 5px;
+
+            background: white;
 
             color: var(--primary);
 
@@ -683,40 +817,49 @@
 
             font-weight: 600;
 
+            cursor: pointer;
+
             transition: 0.2s;
         }
 
 
         .add-btn:hover {
-            background: var(--primary);
 
-            border-color: var(--primary);
+            background:
+                var(--primary);
+
+            border-color:
+                var(--primary);
 
             color: white;
         }
 
 
-        /* =========================================
+        /* =====================================================
            FOOTER
-           ========================================= */
+           ===================================================== */
 
         footer {
+
             background: #24152F;
 
             color: white;
 
-            padding: 65px 7% 25px;
+            padding:
+                65px 7% 25px;
         }
 
 
         .footer-grid {
+
             max-width: 1400px;
 
             margin: auto;
 
             display: grid;
 
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
 
             gap: 50px;
 
@@ -725,6 +868,7 @@
 
 
         .footer-brand h2 {
+
             font-size: 25px;
 
             letter-spacing: 1px;
@@ -734,6 +878,7 @@
 
 
         .footer-brand p {
+
             max-width: 320px;
 
             color: #BDB2C4;
@@ -745,6 +890,7 @@
 
 
         .footer-column h3 {
+
             font-size: 11px;
 
             letter-spacing: 1px;
@@ -754,6 +900,7 @@
 
 
         .footer-column a {
+
             display: block;
 
             color: #BDB2C4;
@@ -767,20 +914,24 @@
 
 
         .footer-column a:hover {
+
             color: white;
 
-            transform: translateX(2px);
+            transform:
+                translateX(2px);
         }
 
 
         .copyright {
+
             max-width: 1400px;
 
             margin: auto;
 
             padding-top: 20px;
 
-            border-top: 1px solid #44344D;
+            border-top:
+                1px solid #44344D;
 
             text-align: center;
 
@@ -790,24 +941,29 @@
         }
 
 
-        /* =========================================
+        /* =====================================================
            RESPONSIVE
-           ========================================= */
+           ===================================================== */
 
         @media (max-width: 1000px) {
 
             nav {
-                padding: 0 5%;
+
+                padding:
+                    0 5%;
             }
 
 
             .nav-links {
+
                 gap: 20px;
             }
 
 
             .shop-container {
-                grid-template-columns: 180px 1fr;
+
+                grid-template-columns:
+                    180px 1fr;
 
                 gap: 30px;
 
@@ -818,12 +974,16 @@
 
 
             .products {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
 
             .footer-grid {
-                grid-template-columns: 1fr 1fr;
+
+                grid-template-columns:
+                    1fr 1fr;
             }
 
         }
@@ -832,70 +992,87 @@
         @media (max-width: 700px) {
 
             nav {
+
                 height: 70px;
             }
 
 
             .nav-links {
+
                 display: none;
             }
 
 
             .page-header {
-                padding: 45px 5%;
+
+                padding:
+                    45px 5%;
             }
 
 
             .page-header h1 {
+
                 font-size: 34px;
             }
 
 
             .shop-container {
+
                 grid-template-columns: 1fr;
 
-                padding: 40px 5% 65px;
+                padding:
+                    40px 5% 65px;
             }
 
 
             .sidebar {
+
                 position: static;
             }
 
 
             .sidebar-section {
+
                 margin-bottom: 20px;
             }
 
 
             .products {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
 
                 gap: 15px;
             }
 
 
             .product-image {
+
                 height: 210px;
             }
 
 
             .product-info {
+
                 padding: 15px;
             }
 
 
             .product-name {
+
                 font-size: 13px;
             }
 
 
             .add-btn {
-                padding: 7px 9px;
+
+                padding:
+                    7px 9px;
             }
 
 
             footer {
+
                 padding-left: 5%;
 
                 padding-right: 5%;
@@ -907,16 +1084,20 @@
         @media (max-width: 480px) {
 
             .logo {
+
                 font-size: 21px;
             }
 
 
             .login {
-                padding: 8px 12px;
+
+                padding:
+                    8px 12px;
             }
 
 
             .cart {
+
                 width: 34px;
 
                 height: 34px;
@@ -924,6 +1105,7 @@
 
 
             .shop-top {
+
                 align-items: flex-start;
 
                 gap: 15px;
@@ -933,16 +1115,19 @@
 
 
             .products {
+
                 grid-template-columns: 1fr;
             }
 
 
             .product-image {
+
                 height: 240px;
             }
 
 
             .footer-grid {
+
                 grid-template-columns: 1fr;
             }
 
@@ -956,11 +1141,14 @@
 <body>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          NAVIGATION
-         ========================================= -->
+         ===================================================== -->
 
     <nav>
+
+
+        <!-- LOGO -->
 
         <a href="index.html"
            class="logo">
@@ -970,45 +1158,74 @@
         </a>
 
 
+        <!-- NAVIGATION LINKS -->
+
         <ul class="nav-links">
 
-            <li>
-                <a href="index.html">
-                    Home
-                </a>
-            </li>
 
             <li>
+
+                <a href="index.html">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
                 <a href="shop.html"
                    class="active">
 
                     Shop
 
                 </a>
+
             </li>
 
+
             <li>
+
                 <a href="#">
+
                     Categories
+
                 </a>
+
             </li>
 
+
             <li>
+
                 <a href="#">
+
                     Deals
+
                 </a>
+
             </li>
 
+
             <li>
+
                 <a href="#">
+
                     About
+
                 </a>
+
             </li>
+
 
         </ul>
 
 
+        <!-- NAV ACTIONS -->
+
         <div class="nav-actions">
+
 
             <a href="login.html"
                class="login">
@@ -1018,13 +1235,20 @@
             </a>
 
 
-            <a href="#"
+            <!-- CART -->
+
+            <a href="cart.html"
                class="cart"
                aria-label="Shopping cart">
 
                 🛒
 
+                <span id="cartCount">
+                    0
+                </span>
+
             </a>
+
 
         </div>
 
@@ -1032,11 +1256,12 @@
 
 
 
-    <!-- =========================================
+    <!-- =====================================================
          PAGE HEADER
-         ========================================= -->
+         ===================================================== -->
 
     <header class="page-header">
+
 
         <div class="breadcrumb">
 
@@ -1046,154 +1271,201 @@
 
 
         <h1>
+
             Shop
+
         </h1>
 
 
         <p>
+
             Discover thoughtfully selected products
             made for your everyday.
+
         </p>
+
 
     </header>
 
 
 
-    <!-- =========================================
+    <!-- =====================================================
          SHOP
-         ========================================= -->
+         ===================================================== -->
 
     <main class="shop-container">
 
 
-        <!-- SIDEBAR -->
+        <!-- =================================================
+             SIDEBAR
+             ================================================= -->
 
         <aside class="sidebar">
 
 
+            <!-- CATEGORIES -->
+
             <div class="sidebar-section">
 
+
                 <h3>
+
                     Categories
+
                 </h3>
 
 
                 <ul class="category-list">
 
+
                     <li>
+
                         <a href="#"
                            class="active">
 
-                            <span>All Products</span>
+                            <span>
+                                All Products
+                            </span>
 
                             <span class="category-count">
                                 8
                             </span>
 
                         </a>
+
                     </li>
 
 
                     <li>
+
                         <a href="#">
 
-                            <span>Fashion</span>
+                            <span>
+                                Fashion
+                            </span>
 
                             <span class="category-count">
                                 2
                             </span>
 
                         </a>
+
                     </li>
 
 
                     <li>
+
                         <a href="#">
 
-                            <span>Electronics</span>
+                            <span>
+                                Electronics
+                            </span>
 
                             <span class="category-count">
                                 2
                             </span>
 
                         </a>
+
                     </li>
 
 
                     <li>
+
                         <a href="#">
 
-                            <span>Beauty</span>
+                            <span>
+                                Beauty
+                            </span>
 
                             <span class="category-count">
                                 1
                             </span>
 
                         </a>
+
                     </li>
 
 
                     <li>
+
                         <a href="#">
 
-                            <span>Home & Living</span>
+                            <span>
+                                Home & Living
+                            </span>
 
                             <span class="category-count">
                                 1
                             </span>
 
                         </a>
+
                     </li>
 
 
                     <li>
+
                         <a href="#">
 
-                            <span>Accessories</span>
+                            <span>
+                                Accessories
+                            </span>
 
                             <span class="category-count">
                                 2
                             </span>
 
                         </a>
+
                     </li>
+
 
                 </ul>
+
 
             </div>
 
 
 
-            <!-- PRICE -->
+            <!-- PRICE RANGE -->
 
             <div class="sidebar-section">
 
+
                 <h3>
+
                     Price Range
+
                 </h3>
 
 
                 <div class="price-filter">
 
+
                     <input
-                        type="text"
+                        type="number"
                         placeholder="Min"
                         aria-label="Minimum price"
                     >
 
 
                     <span class="price-dash">
+
                         —
+
                     </span>
 
 
                     <input
-                        type="text"
+                        type="number"
                         placeholder="Max"
                         aria-label="Maximum price"
                     >
 
+
                 </div>
+
 
             </div>
 
@@ -1202,638 +1474,232 @@
 
 
 
-        <!-- PRODUCTS -->
+        <!-- =================================================
+             PRODUCTS AREA
+             ================================================= -->
 
         <section>
 
 
+            <!-- SHOP TOP -->
+
             <div class="shop-top">
+
 
                 <div class="results">
 
                     Showing
-                    <strong>8 products</strong>
+
+                    <strong>
+                        8 products
+                    </strong>
 
                 </div>
 
 
-                <select class="sort"
-                        aria-label="Sort products">
+                <select
+                    class="sort"
+                    aria-label="Sort products">
+
 
                     <option>
                         Sort: Featured
                     </option>
 
+
                     <option>
                         Price: Low to High
                     </option>
+
 
                     <option>
                         Price: High to Low
                     </option>
 
+
                     <option>
                         Newest
                     </option>
 
+
                 </select>
+
 
             </div>
 
 
+
+            <!-- =================================================
+                 PRODUCTS
+
+                 IMPORTANT:
+                 Products will be generated by script.js
+                 ================================================= -->
 
             <div class="products">
 
-
-                <!-- PRODUCT 1 -->
-
-                <article class="product">
-
-                    <div class="product-image">
-
-                        <div class="image-placeholder">
-                            F
-                        </div>
-
-
-                        <button class="wishlist"
-                                aria-label="Add sneakers to wishlist">
-
-                            ♡
-
-                        </button>
-
-                    </div>
-
-
-                    <div class="product-info">
-
-                        <div class="product-category">
-                            Fashion
-                        </div>
-
-
-                        <div class="product-name">
-                            Classic Everyday Sneakers
-                        </div>
-
-
-                        <div class="rating">
-                            ★★★★★
-                        </div>
-
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-                                ₱1,299
-                            </div>
-
-
-                            <a href="#"
-                               class="add-btn">
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- PRODUCT 2 -->
-
-                <article class="product">
-
-                    <div class="product-image">
-
-                        <div class="image-placeholder">
-                            E
-                        </div>
-
-
-                        <button class="wishlist"
-                                aria-label="Add headphones to wishlist">
-
-                            ♡
-
-                        </button>
-
-                    </div>
-
-
-                    <div class="product-info">
-
-                        <div class="product-category">
-                            Electronics
-                        </div>
-
-
-                        <div class="product-name">
-                            Wireless Headphones
-                        </div>
-
-
-                        <div class="rating">
-                            ★★★★★
-                        </div>
-
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-                                ₱899
-                            </div>
-
-
-                            <a href="#"
-                               class="add-btn">
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- PRODUCT 3 -->
-
-                <article class="product">
-
-                    <div class="product-image">
-
-                        <div class="image-placeholder">
-                            A
-                        </div>
-
-
-                        <button class="wishlist"
-                                aria-label="Add leather bag to wishlist">
-
-                            ♡
-
-                        </button>
-
-                    </div>
-
-
-                    <div class="product-info">
-
-                        <div class="product-category">
-                            Accessories
-                        </div>
-
-
-                        <div class="product-name">
-                            Minimal Leather Bag
-                        </div>
-
-
-                        <div class="rating">
-                            ★★★★☆
-                        </div>
-
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-                                ₱1,499
-                            </div>
-
-
-                            <a href="#"
-                               class="add-btn">
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- PRODUCT 4 -->
-
-                <article class="product">
-
-                    <div class="product-image">
-
-                        <div class="image-placeholder">
-                            E
-                        </div>
-
-
-                        <button class="wishlist"
-                                aria-label="Add smartwatch to wishlist">
-
-                            ♡
-
-                        </button>
-
-                    </div>
-
-
-                    <div class="product-info">
-
-                        <div class="product-category">
-                            Electronics
-                        </div>
-
-
-                        <div class="product-name">
-                            Smart Watch
-                        </div>
-
-
-                        <div class="rating">
-                            ★★★★★
-                        </div>
-
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-                                ₱1,999
-                            </div>
-
-
-                            <a href="#"
-                               class="add-btn">
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- PRODUCT 5 -->
-
-                <article class="product">
-
-                    <div class="product-image">
-
-                        <div class="image-placeholder">
-                            B
-                        </div>
-
-
-                        <button class="wishlist"
-                                aria-label="Add daily care essentials to wishlist">
-
-                            ♡
-
-                        </button>
-
-                    </div>
-
-
-                    <div class="product-info">
-
-                        <div class="product-category">
-                            Beauty
-                        </div>
-
-
-                        <div class="product-name">
-                            Daily Care Essentials
-                        </div>
-
-
-                        <div class="rating">
-                            ★★★★★
-                        </div>
-
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-                                ₱599
-                            </div>
-
-
-                            <a href="#"
-                               class="add-btn">
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- PRODUCT 6 -->
-
-                <article class="product">
-
-                    <div class="product-image">
-
-                        <div class="image-placeholder">
-                            H
-                        </div>
-
-
-                        <button class="wishlist"
-                                aria-label="Add home organizer to wishlist">
-
-                            ♡
-
-                        </button>
-
-                    </div>
-
-
-                    <div class="product-info">
-
-                        <div class="product-category">
-                            Home
-                        </div>
-
-
-                        <div class="product-name">
-                            Minimal Home Organizer
-                        </div>
-
-
-                        <div class="rating">
-                            ★★★★☆
-                        </div>
-
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-                                ₱749
-                            </div>
-
-
-                            <a href="#"
-                               class="add-btn">
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- PRODUCT 7 -->
-
-                <article class="product">
-
-                    <div class="product-image">
-
-                        <div class="image-placeholder">
-                            F
-                        </div>
-
-
-                        <button class="wishlist"
-                                aria-label="Add everyday shirt to wishlist">
-
-                            ♡
-
-                        </button>
-
-                    </div>
-
-
-                    <div class="product-info">
-
-                        <div class="product-category">
-                            Fashion
-                        </div>
-
-
-                        <div class="product-name">
-                            Essential Everyday Shirt
-                        </div>
-
-
-                        <div class="rating">
-                            ★★★★★
-                        </div>
-
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-                                ₱699
-                            </div>
-
-
-                            <a href="#"
-                               class="add-btn">
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- PRODUCT 8 -->
-
-                <article class="product">
-
-                    <div class="product-image">
-
-                        <div class="image-placeholder">
-                            A
-                        </div>
-
-
-                        <button class="wishlist"
-                                aria-label="Add classic watch to wishlist">
-
-                            ♡
-
-                        </button>
-
-                    </div>
-
-
-                    <div class="product-info">
-
-                        <div class="product-category">
-                            Accessories
-                        </div>
-
-
-                        <div class="product-name">
-                            Classic Everyday Watch
-                        </div>
-
-
-                        <div class="rating">
-                            ★★★★☆
-                        </div>
-
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-                                ₱1,199
-                            </div>
-
-
-                            <a href="#"
-                               class="add-btn">
-
-                                Add to Cart
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
+                <!-- JavaScript will load products here -->
 
             </div>
 
+
         </section>
+
 
     </main>
 
 
 
-    <!-- =========================================
+    <!-- =====================================================
          FOOTER
-         ========================================= -->
+         ===================================================== -->
 
     <footer>
+
 
         <div class="footer-grid">
 
 
+            <!-- BRAND -->
+
             <div class="footer-brand">
 
+
                 <h2>
+
                     VALORA
+
                 </h2>
 
 
                 <p>
+
                     A modern e-commerce platform designed
                     to make online shopping simple,
                     convenient, and enjoyable.
+
                 </p>
+
 
             </div>
 
 
 
+            <!-- SHOP -->
+
             <div class="footer-column">
 
+
                 <h3>
+
                     SHOP
+
                 </h3>
 
 
                 <a href="shop.html">
+
                     Products
+
                 </a>
 
 
                 <a href="#">
+
                     Categories
+
                 </a>
 
 
                 <a href="#">
+
                     Deals
+
                 </a>
+
 
             </div>
 
 
 
+            <!-- ACCOUNT -->
+
             <div class="footer-column">
 
+
                 <h3>
+
                     ACCOUNT
+
                 </h3>
 
 
                 <a href="login.html">
+
                     Login
+
                 </a>
 
 
                 <a href="register.html">
+
                     Register
+
                 </a>
 
 
                 <a href="#">
+
                     My Orders
+
                 </a>
+
 
             </div>
 
 
 
+            <!-- SUPPORT -->
+
             <div class="footer-column">
 
+
                 <h3>
+
                     SUPPORT
+
                 </h3>
 
 
                 <a href="#">
+
                     Contact Us
+
                 </a>
 
 
                 <a href="#">
+
                     FAQs
+
                 </a>
 
 
                 <a href="#">
+
                     Terms & Conditions
+
                 </a>
+
 
             </div>
 
 
         </div>
 
+
+
+        <!-- COPYRIGHT -->
 
         <div class="copyright">
 
@@ -1841,7 +1707,16 @@
 
         </div>
 
+
     </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="js/script.js"></script>
 
 
 </body>
