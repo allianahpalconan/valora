@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Valora | My Orders</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --primary: #5B2A86;
+        --primary-dark: #431D65;
+        --primary-light: #F3ECF8;
+        --text: #21182A;
+        --muted: #77717D;
+        --background: #FAF9FB;
+        --white: #FFFFFF;
+        --border: #E9E4EC;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: var(--background);
+        color: var(--text);
+        line-height: 1.5;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* NAVBAR */
+
+    nav {
+        height: 76px;
+        padding: 0 7%;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo {
+        color: var(--primary);
+        font-size: 25px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: #625B67;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary);
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .login {
+        padding: 9px 17px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+
+        color: var(--text);
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .login:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+    }
+
+    .cart {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: var(--primary-light);
+        color: var(--primary);
+
+        font-size: 17px;
+    }
+
+    .cart:hover {
+        background: var(--primary);
+        color: white;
+    }
+
+    /* HEADER */
+
+    .page-header {
+        background: var(--white);
+        padding: 55px 7% 50px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .breadcrumb {
+        margin-bottom: 15px;
+        font-size: 11px;
+        color: var(--muted);
+    }
+
+    .breadcrumb span {
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    .page-header h1 {
+        font-size: 40px;
+        letter-spacing: -1px;
+        margin-bottom: 8px;
+    }
+
+    .page-header p {
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    /* ORDERS */
+
+    .orders-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 55px 7% 90px;
+    }
+
+    .orders-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .order-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .order-header {
+        padding: 20px 25px;
+        background: #FCFBFD;
+        border-bottom: 1px solid var(--border);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .order-number {
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .order-date {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 11px;
+    }
+
+    .order-status {
+        padding: 7px 12px;
+        border-radius: 20px;
+
+        background: var(--primary-light);
+        color: var(--primary);
+
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    .order-body {
+        padding: 22px 25px;
+    }
+
+    .order-product {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .product-icon {
+        width: 55px;
+        height: 55px;
+        border-radius: 6px;
+
+        background: var(--primary-light);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: var(--primary);
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .product-details {
+        flex: 1;
+    }
+
+    .product-name {
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .product-quantity {
+        color: var(--muted);
+        font-size: 11px;
+        margin-top: 3px;
+    }
+
+    .product-price {
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .order-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .total-label {
+        color: var(--muted);
+        font-size: 12px;
+    }
+
+    .order-total {
+        margin-left: 8px;
+        color: var(--primary);
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .view-btn {
+        padding: 9px 15px;
+
+        border: 1px solid var(--primary);
+        border-radius: 5px;
+
+        color: var(--primary);
+
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .view-btn:hover {
+        background: var(--primary);
+        color: white;
+    }
+
+    /* EMPTY */
+
+    .empty-orders {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+
+        padding: 80px 30px;
+        text-align: center;
+    }
+
+    .empty-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 20px;
+
+        border-radius: 50%;
+        background: var(--primary-light);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 28px;
+    }
+
+    .empty-orders h2 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .empty-orders p {
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    .shop-btn {
+        display: inline-block;
+
+        padding: 11px 20px;
+
+        background: var(--primary);
+        color: white;
+
+        border-radius: 5px;
+
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .shop-btn:hover {
+        background: var(--primary-dark);
+    }
+
+    /* FOOTER */
+
+    footer {
+        background: #24152F;
+        color: white;
+        padding: 65px 7% 25px;
+    }
+
+    .footer-grid {
+        max-width: 1100px;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+
+        gap: 50px;
+        margin-bottom: 50px;
+    }
+
+    .footer-brand h2 {
+        font-size: 25px;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    .footer-brand p {
+        max-width: 320px;
+
+        color: #BDB2C4;
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .footer-column h3 {
+        font-size: 11px;
+        letter-spacing: 1px;
+        margin-bottom: 18px;
+    }
+
+    .footer-column a {
+        display: block;
+
+        color: #BDB2C4;
+        font-size: 12px;
+
+        margin-bottom: 11px;
+    }
+
+    .footer-column a:hover {
+        color: white;
+    }
+
+    .copyright {
+        max-width: 1100px;
+        margin: auto;
+
+        padding-top: 20px;
+
+        border-top: 1px solid #44344D;
+
+        text-align: center;
+
+        color: #928698;
+        font-size: 10px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+
+        .nav-links {
+            display: none;
+        }
+
+        .orders-container {
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 550px) {
+
+        .page-header {
+            padding: 45px 5%;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+        }
+
+        .order-header {
+            align-items: flex-start;
+            gap: 15px;
+            flex-direction: column;
+        }
+
+        .order-footer {
+            align-items: flex-start;
+            gap: 15px;
+            flex-direction: column;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- NAVBAR -->
+
+<nav>
+
+    <a href="index.html" class="logo">
+        VALORA
+    </a>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="shop.html">
+                Shop
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                Categories
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                Deals
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                About
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="nav-actions">
+
+        <a href="login.html" class="login">
+            Login
+        </a>
+
+        <a href="cart.html"
+           class="cart"
+           aria-label="Shopping cart">
+            🛒
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HEADER -->
+
+<header class="page-header">
+
+    <div class="breadcrumb">
+        Home / <span>My Orders</span>
+    </div>
+
+    <h1>
+        My Orders
+    </h1>
+
+    <p>
+        View and track your previous orders.
+    </p>
+
+</header>
+
+
+<!-- ORDERS -->
+
+<main class="orders-container">
+
+    <div id="ordersList" class="orders-list">
+
+        <!-- Orders will appear here -->
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <h2>
+                VALORA
+            </h2>
+
+            <p>
+                A modern e-commerce platform designed
+                to make online shopping simple,
+                convenient, and enjoyable.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>
+                SHOP
+            </h3>
+
+            <a href="shop.html">
+                Products
+            </a>
+
+            <a href="#">
+                Categories
+            </a>
+
+            <a href="#">
+                Deals
+            </a>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>
+                ACCOUNT
+            </h3>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="register.html">
+                Register
+            </a>
+
+            <a href="orders.html">
+                My Orders
+            </a>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>
+                SUPPORT
+            </h3>
+
+            <a href="#">
+                Contact Us
+            </a>
+
+            <a href="#">
+                FAQs
+            </a>
+
+            <a href="#">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 Valora. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<script>
+
+    function displayOrders() {
+
+        const ordersList =
+            document.getElementById("ordersList");
+
+        const orders =
+            JSON.parse(
+                localStorage.getItem("valoraOrders")
+            ) || [];
+
+
+        /* EMPTY ORDERS */
+
+        if (orders.length === 0) {
+
+            ordersList.innerHTML = `
+
+                <div class="empty-orders">
+
+                    <div class="empty-icon">
+                        📦
+                    </div>
+
+                    <h2>
+                        No orders yet
+                    </h2>
+
+                    <p>
+                        Your completed orders will appear here.
+                    </p>
+
+                    <a href="shop.html"
+                       class="shop-btn">
+
+                        Start Shopping
+
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        /* DISPLAY ORDERS */
+
+        ordersList.innerHTML = "";
+
+
+        orders.forEach(order => {
+
+            const items =
+                order.items || [];
+
+
+            let productsHTML = "";
+
+
+            items.forEach(item => {
+
+                const firstLetter =
+                    item.name
+                        .charAt(0)
+                        .toUpperCase();
+
+
+                const itemTotal =
+                    item.price * item.quantity;
+
+
+                productsHTML += `
+
+                    <div class="order-product">
+
+                        <div class="product-icon">
+                            ${firstLetter}
+                        </div>
+
+                        <div class="product-details">
+
+                            <div class="product-name">
+                                ${item.name}
+                            </div>
+
+                            <div class="product-quantity">
+                                Quantity: ${item.quantity}
+                            </div>
+
+                        </div>
+
+                        <div class="product-price">
+                            ₱${itemTotal.toLocaleString()}
+                        </div>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            const orderDate =
+                order.date ||
+                new Date().toLocaleDateString();
+
+
+            const orderStatus =
+                order.status ||
+                "Order Placed";
+
+
+            const orderTotal =
+                order.total ||
+                0;
+
+
+            ordersList.innerHTML += `
+
+                <div class="order-card">
+
+                    <div class="order-header">
+
+                        <div>
+
+                            <div class="order-number">
+                                Order #${order.orderNumber || "N/A"}
+                            </div>
+
+                            <div class="order-date">
+                                ${orderDate}
+                            </div>
+
+                        </div>
+
+                        <div class="order-status">
+                            ${orderStatus}
+                        </div>
+
+                    </div>
+
+
+                    <div class="order-body">
+
+                        ${productsHTML}
+
+
+                        <div class="order-footer">
+
+                            <div>
+
+                                <span class="total-label">
+                                    Order Total:
+                                </span>
+
+                                <span class="order-total">
+                                    ₱${Number(orderTotal).toLocaleString()}
+                                </span>
+
+                            </div>
+
+
+                            <a href="shop.html"
+                               class="view-btn">
+
+                                Shop Again
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        displayOrders
+    );
+
+</script>
+
+</body>
+
+</html>
