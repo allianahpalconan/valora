@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Valora | Order Confirmed</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    :root {
+        --primary: #5B2A86;
+        --primary-dark: #431D65;
+        --primary-light: #F3ECF8;
+
+        --text: #21182A;
+        --muted: #77717D;
+
+        --background: #FAF9FB;
+        --white: #FFFFFF;
+
+        --border: #E9E4EC;
+    }
+
+
+    body {
+        font-family: 'Inter', sans-serif;
+
+        background: var(--background);
+
+        color: var(--text);
+
+        line-height: 1.5;
+    }
+
+
+    a {
+        text-decoration: none;
+
+        color: inherit;
+    }
+
+
+    /* ================= NAVBAR ================= */
+
+    nav {
+        height: 76px;
+
+        padding: 0 7%;
+
+        background: var(--white);
+
+        border-bottom: 1px solid var(--border);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        position: sticky;
+
+        top: 0;
+
+        z-index: 1000;
+    }
+
+
+    .logo {
+        color: var(--primary);
+
+        font-size: 25px;
+
+        font-weight: 700;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .nav-links {
+        display: flex;
+
+        align-items: center;
+
+        gap: 32px;
+
+        list-style: none;
+    }
+
+
+    .nav-links a {
+        color: #625B67;
+
+        font-size: 13px;
+
+        font-weight: 500;
+    }
+
+
+    .nav-links a:hover {
+        color: var(--primary);
+    }
+
+
+    .nav-actions {
+        display: flex;
+
+        align-items: center;
+
+        gap: 18px;
+    }
+
+
+    .login {
+        padding: 9px 17px;
+
+        border: 1px solid var(--border);
+
+        border-radius: 6px;
+
+        color: var(--text);
+
+        font-size: 12px;
+
+        font-weight: 600;
+    }
+
+
+    .cart {
+        width: 38px;
+
+        height: 38px;
+
+        border-radius: 50%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        background: var(--primary-light);
+
+        color: var(--primary);
+
+        font-size: 17px;
+    }
+
+
+    /* ================= CONFIRMATION ================= */
+
+    .confirmation {
+        max-width: 850px;
+
+        margin: auto;
+
+        padding: 80px 7% 100px;
+
+        text-align: center;
+    }
+
+
+    .success-icon {
+        width: 80px;
+
+        height: 80px;
+
+        margin: 0 auto 25px;
+
+        border-radius: 50%;
+
+        background: var(--primary-light);
+
+        color: var(--primary);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 35px;
+
+        font-weight: 700;
+    }
+
+
+    .confirmation h1 {
+        font-size: 32px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .confirmation-message {
+        color: var(--muted);
+
+        font-size: 14px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .order-number {
+        display: inline-block;
+
+        padding: 12px 20px;
+
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        border-radius: 6px;
+
+        font-size: 12px;
+
+        margin-bottom: 40px;
+    }
+
+
+    .order-number strong {
+        color: var(--primary);
+    }
+
+
+    /* ================= DETAILS ================= */
+
+    .details {
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        border-radius: 8px;
+
+        padding: 30px;
+
+        text-align: left;
+
+        margin-bottom: 30px;
+    }
+
+
+    .details h2 {
+        font-size: 17px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .detail-row {
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        padding: 12px 0;
+
+        border-bottom: 1px solid var(--border);
+
+        font-size: 12px;
+    }
+
+
+    .detail-row:last-child {
+        border-bottom: none;
+    }
+
+
+    .detail-row span:first-child {
+        color: var(--muted);
+    }
+
+
+    .detail-row span:last-child {
+        text-align: right;
+
+        font-weight: 600;
+    }
+
+
+    /* ================= ITEMS ================= */
+
+    .items {
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        border-radius: 8px;
+
+        padding: 30px;
+
+        text-align: left;
+
+        margin-bottom: 30px;
+    }
+
+
+    .items h2 {
+        font-size: 17px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .item {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        padding: 14px 0;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+
+    .item:last-child {
+        border-bottom: none;
+    }
+
+
+    .item-name {
+        font-size: 12px;
+
+        font-weight: 600;
+    }
+
+
+    .item-quantity {
+        color: var(--muted);
+
+        font-size: 10px;
+
+        margin-top: 3px;
+    }
+
+
+    .item-price {
+        font-size: 12px;
+
+        font-weight: 600;
+
+        white-space: nowrap;
+    }
+
+
+    /* ================= BUTTONS ================= */
+
+    .buttons {
+        display: flex;
+
+        justify-content: center;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .btn {
+        display: inline-block;
+
+        padding: 12px 22px;
+
+        border-radius: 5px;
+
+        font-size: 12px;
+
+        font-weight: 600;
+
+        transition: 0.2s;
+    }
+
+
+    .primary-btn {
+        background: var(--primary);
+
+        color: white;
+    }
+
+
+    .primary-btn:hover {
+        background: var(--primary-dark);
+    }
+
+
+    .secondary-btn {
+        border: 1px solid var(--border);
+
+        background: var(--white);
+
+        color: var(--text);
+    }
+
+
+    .secondary-btn:hover {
+        border-color: var(--primary);
+
+        color: var(--primary);
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    footer {
+        background: #24152F;
+
+        color: white;
+
+        padding: 65px 7% 25px;
+    }
+
+
+    .footer-grid {
+        max-width: 1400px;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+
+        gap: 50px;
+
+        margin-bottom: 50px;
+    }
+
+
+    .footer-brand h2 {
+        font-size: 25px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .footer-brand p {
+        max-width: 320px;
+
+        color: #BDB2C4;
+
+        font-size: 12px;
+
+        line-height: 1.8;
+    }
+
+
+    .footer-column h3 {
+        font-size: 11px;
+
+        letter-spacing: 1px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .footer-column a {
+        display: block;
+
+        color: #BDB2C4;
+
+        font-size: 12px;
+
+        margin-bottom: 11px;
+    }
+
+
+    .footer-column a:hover {
+        color: white;
+    }
+
+
+    .copyright {
+        max-width: 1400px;
+
+        margin: auto;
+
+        padding-top: 20px;
+
+        border-top: 1px solid #44344D;
+
+        text-align: center;
+
+        color: #928698;
+
+        font-size: 10px;
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 800px) {
+
+        .nav-links {
+            display: none;
+        }
+
+
+        .confirmation {
+            padding: 60px 5% 80px;
+        }
+
+
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+    }
+
+
+    @media (max-width: 550px) {
+
+        nav {
+            padding: 0 5%;
+        }
+
+
+        .confirmation h1 {
+            font-size: 26px;
+        }
+
+
+        .details,
+        .items {
+            padding: 20px;
+        }
+
+
+        .detail-row {
+            flex-direction: column;
+
+            gap: 4px;
+        }
+
+
+        .detail-row span:last-child {
+            text-align: left;
+        }
+
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <a href="index.html"
+       class="logo">
+
+        VALORA
+
+    </a>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="shop.html">
+                Shop
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                Categories
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                Deals
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                About
+            </a>
+        </li>
+
+    </ul>
+
+
+    <div class="nav-actions">
+
+        <a href="login.html"
+           class="login">
+
+            Login
+
+        </a>
+
+
+        <a href="cart.html"
+           class="cart">
+
+            🛒
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ================= CONFIRMATION ================= -->
+
+<main class="confirmation">
+
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+
+    <h1>
+        Order Confirmed!
+    </h1>
+
+
+    <p class="confirmation-message">
+
+        Thank you for shopping with Valora.
+        Your order has been successfully placed.
+
+    </p>
+
+
+    <div class="order-number">
+
+        Order Number:
+        <strong id="orderNumber">
+            Loading...
+        </strong>
+
+    </div>
+
+
+
+    <!-- ORDER DETAILS -->
+
+    <section class="details">
+
+        <h2>
+            Order Details
+        </h2>
+
+
+        <div class="detail-row">
+
+            <span>
+                Customer
+            </span>
+
+            <span id="customerName">
+                Loading...
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>
+                Email
+            </span>
+
+            <span id="customerEmail">
+                Loading...
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>
+                Phone
+            </span>
+
+            <span id="customerPhone">
+                Loading...
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>
+                Payment Method
+            </span>
+
+            <span id="paymentMethod">
+                Loading...
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>
+                Delivery Address
+            </span>
+
+            <span id="deliveryAddress">
+                Loading...
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>
+                Order Date
+            </span>
+
+            <span id="orderDate">
+                Loading...
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ORDER ITEMS -->
+
+    <section class="items">
+
+        <h2>
+            Ordered Products
+        </h2>
+
+
+        <div id="orderItems">
+
+            Loading...
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BUTTONS -->
+
+    <div class="buttons">
+
+        <a href="shop.html"
+           class="btn primary-btn">
+
+            Continue Shopping
+
+        </a>
+
+
+        <a href="index.html"
+           class="btn secondary-btn">
+
+            Back to Home
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+            <h2>
+                VALORA
+            </h2>
+
+            <p>
+                A modern e-commerce platform designed
+                to make online shopping simple,
+                convenient, and enjoyable.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                SHOP
+            </h3>
+
+            <a href="shop.html">
+                Products
+            </a>
+
+            <a href="#">
+                Categories
+            </a>
+
+            <a href="#">
+                Deals
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                ACCOUNT
+            </h3>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="register.html">
+                Register
+            </a>
+
+            <a href="#">
+                My Orders
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                SUPPORT
+            </h3>
+
+            <a href="#">
+                Contact Us
+            </a>
+
+            <a href="#">
+                FAQs
+            </a>
+
+            <a href="#">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Valora. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+    /* =========================
+       LOAD ORDER
+       ========================= */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+
+            const order =
+                JSON.parse(
+                    localStorage.getItem("valoraLastOrder")
+                );
+
+
+            /* IF NO ORDER EXISTS */
+
+            if (!order) {
+
+                document.getElementById(
+                    "orderNumber"
+                ).textContent = "No order found";
+
+
+                document.getElementById(
+                    "customerName"
+                ).textContent = "-";
+
+
+                document.getElementById(
+                    "customerEmail"
+                ).textContent = "-";
+
+
+                document.getElementById(
+                    "customerPhone"
+                ).textContent = "-";
+
+
+                document.getElementById(
+                    "paymentMethod"
+                ).textContent = "-";
+
+
+                document.getElementById(
+                    "deliveryAddress"
+                ).textContent = "-";
+
+
+                document.getElementById(
+                    "orderDate"
+                ).textContent = "-";
+
+
+                document.getElementById(
+                    "orderItems"
+                ).innerHTML = `
+                    <p style="
+                        color:#77717D;
+                        font-size:12px;
+                    ">
+                        No order information available.
+                    </p>
+                `;
+
+                return;
+
+            }
+
+
+            /* ORDER NUMBER */
+
+            document.getElementById(
+                "orderNumber"
+            ).textContent =
+                order.orderNumber;
+
+
+
+            /* CUSTOMER */
+
+            document.getElementById(
+                "customerName"
+            ).textContent =
+                order.customer.firstName +
+                " " +
+                order.customer.lastName;
+
+
+            document.getElementById(
+                "customerEmail"
+            ).textContent =
+                order.customer.email;
+
+
+            document.getElementById(
+                "customerPhone"
+            ).textContent =
+                order.customer.phone;
+
+
+            /* PAYMENT */
+
+            document.getElementById(
+                "paymentMethod"
+            ).textContent =
+                order.paymentMethod;
+
+
+            /* ADDRESS */
+
+            document.getElementById(
+                "deliveryAddress"
+            ).textContent =
+
+                order.customer.address +
+                ", " +
+                order.customer.barangay +
+                ", " +
+                order.customer.city +
+                ", " +
+                order.customer.province;
+
+
+            /* DATE */
+
+            document.getElementById(
+                "orderDate"
+            ).textContent =
+                order.date;
+
+
+
+            /* =========================
+               PRODUCTS
+               ========================= */
+
+            const itemsContainer =
+                document.getElementById(
+                    "orderItems"
+                );
+
+
+            itemsContainer.innerHTML = "";
+
+
+            order.items.forEach(
+                function (item) {
+
+                    const itemTotal =
+                        item.price *
+                        item.quantity;
+
+
+                    itemsContainer.innerHTML += `
+
+                        <div class="item">
+
+                            <div>
+
+                                <div class="item-name">
+                                    ${item.name}
+                                </div>
+
+                                <div class="item-quantity">
+                                    Quantity: ${item.quantity}
+                                </div>
+
+                            </div>
+
+
+                            <div class="item-price">
+
+                                ₱${itemTotal.toLocaleString()}
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>
