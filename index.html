@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Valora | Elevate Your Everyday</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #24152f;
+            background: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            height: 78px;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: #4b2673;
+            border-bottom: 1px solid #eee9f1;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #4b2673;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .login {
+            color: #4b2673;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .cart {
+            color: #4b2673;
+            font-size: 18px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 570px;
+
+            padding: 80px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: #f6f1f9;
+            gap: 60px;
+        }
+
+        .hero-content {
+            max-width: 580px;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #765294;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.08;
+            letter-spacing: -2px;
+            color: #24152f;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #6d6672;
+            max-width: 500px;
+            margin-bottom: 34px;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            padding: 14px 26px;
+
+            background: #4b2673;
+            color: #ffffff;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+        .primary-btn:hover {
+            background: #32194f;
+        }
+
+        .hero-visual {
+            width: 480px;
+            height: 390px;
+
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 4px;
+
+            box-shadow: 0 20px 50px rgba(60, 35, 80, 0.10);
+        }
+
+        .hero-visual span {
+            font-size: 20px;
+            color: #8d7a9b;
+            letter-spacing: 1px;
+        }
+
+        /* ================= SEARCH ================= */
+
+        .search-wrapper {
+            padding: 0 7%;
+            margin-top: -28px;
+            position: relative;
+        }
+
+        .search-box {
+            max-width: 850px;
+            margin: auto;
+
+            background: #ffffff;
+
+            border: 1px solid #e6e0e9;
+
+            display: flex;
+            align-items: center;
+
+            padding: 5px;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+        }
+
+        .search-box input {
+            flex: 1;
+
+            border: none;
+            outline: none;
+
+            padding: 15px;
+
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            border: none;
+
+            background: #4b2673;
+            color: white;
+
+            padding: 13px 25px;
+
+            font-family: inherit;
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 90px 7%;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            font-size: 30px;
+            color: #24152f;
+        }
+
+        .section-header p {
+            color: #77707b;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .view-all {
+            color: #4b2673;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ================= CATEGORIES ================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category {
+            height: 180px;
+
+            background: #f7f3f9;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            border: 1px solid #eee7f2;
+
+            transition: 0.25s;
+        }
+
+        .category:hover {
+            background: #eee5f4;
+            transform: translateY(-3px);
+        }
+
+        .category-icon {
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            color: #4b2673;
+            font-size: 20px;
+        }
+
+        .category h3 {
+            font-size: 15px;
+            color: #3c3044;
+        }
+
+        .category p {
+            margin-top: 6px;
+            font-size: 12px;
+            color: #8a838e;
+        }
+
+        /* ================= FEATURED PRODUCTS ================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .product {
+            background: white;
+
+            border: 1px solid #eee9f1;
+
+            transition: 0.25s;
+        }
+
+        .product:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(50,30,65,0.08);
+        }
+
+        .product-image {
+            height: 240px;
+
+            background: #f5f1f7;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #9b8ca4;
+            font-size: 13px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: #8a7b94;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #302337;
+            margin-bottom: 12px;
+        }
+
+        .rating {
+            font-size: 12px;
+            color: #9a7b32;
+            margin-bottom: 12px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            color: #4b2673;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .add-btn {
+            color: #4b2673;
+            font-size: 12px;
+            font-weight: 600;
+
+            border: 1px solid #d8cbe0;
+
+            padding: 8px 12px;
+
+            transition: 0.2s;
+        }
+
+        .add-btn:hover {
+            background: #4b2673;
+            color: white;
+        }
+
+        /* ================= PROMO ================= */
+
+        .promo {
+            margin: 0 7% 90px;
+
+            background: #4b2673;
+
+            padding: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            color: white;
+        }
+
+        .promo h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .promo p {
+            font-size: 14px;
+            color: #ddd0e7;
+        }
+
+        .promo-btn {
+            background: white;
+            color: #4b2673;
+
+            padding: 13px 24px;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 22px;
+            color: #4b2673;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #77707b;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #24152f;
+            color: white;
+
+            padding: 65px 7% 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            margin-bottom: 50px;
+        }
+
+        .footer-brand h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: #bdb2c4;
+            font-size: 13px;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-column h3 {
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+
+            color: #bdb2c4;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #44344d;
+
+            padding-top: 20px;
+
+            color: #928698;
+
+            font-size: 11px;
+
+            text-align: center;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-visual {
+                width: 100%;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .hero {
+                padding: 60px 5%;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-visual {
+                height: 280px;
+            }
+
+            .search-wrapper {
+                padding: 0 5%;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 65px 5%;
+            }
+
+            .section-header {
+                display: block;
+            }
+
+            .view-all {
+                display: inline-block;
+                margin-top: 15px;
+            }
+
+            .promo {
+                margin: 0 5% 60px;
+                padding: 40px 25px;
+
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <a href="#" class="logo">
+            VALORA
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Deals</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="#" class="login">Login</a>
+            <a href="#" class="cart">🛒</a>
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                THE VALORA COLLECTION
+            </div>
+
+            <h1>
+                Elevate Your Everyday.
+            </h1>
+
+            <p>
+                Discover thoughtfully selected products that
+                bring style, convenience, and quality into
+                your everyday life.
+            </p>
+
+            <a href="shop.html" class="view-all">
+                Explore Collection
+            </a>
+
+        </div>
+
+        <div class="hero-visual">
+            <span>Featured Collection</span>
+        </div>
+
+    </section>
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <div class="search-wrapper">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                placeholder="Search products, categories, and more..."
+            >
+
+            <button>
+                Search
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <div>
+                <h2>Shop by Category</h2>
+
+                <p>
+                    Explore our carefully selected categories.
+                </p>
+            </div>
+
+            <a href="#" class="view-all">
+                View All →
+            </a>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category">
+
+                <div class="category-icon">
+                    F
+                </div>
+
+                <h3>Fashion</h3>
+
+                <p>
+                    Clothing & Accessories
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    E
+                </div>
+
+                <h3>Electronics</h3>
+
+                <p>
+                    Devices & Gadgets
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    B
+                </div>
+
+                <h3>Beauty</h3>
+
+                <p>
+                    Beauty & Personal Care
+                </p>
+
+            </div>
+
+
+            <div class="category">
+
+                <div class="category-icon">
+                    H
+                </div>
+
+                <h3>Home & Living</h3>
+
+                <p>
+                    Essentials for Your Home
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURED PRODUCTS ================= -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>Featured Collection</h2>
+
+                <p>
+                    Discover some of our most popular products.
+                </p>
+
+            </div>
+
+            <a href="#" class="view-all">
+                View All →
+            </a>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    Product Image
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Fashion
+                    </div>
+
+                    <div class="product-name">
+                        Classic Everyday Sneakers
+                    </div>
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            ₱1,299
+                        </div>
+
+                        <a href="#" class="add-btn">
+                            Add to Cart
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    Product Image
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Electronics
+                    </div>
+
+                    <div class="product-name">
+                        Wireless Headphones
+                    </div>
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            ₱899
+                        </div>
+
+                        <a href="#" class="add-btn">
+                            Add to Cart
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    Product Image
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Accessories
+                    </div>
+
+                    <div class="product-name">
+                        Minimal Leather Bag
+                    </div>
+
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            ₱1,499
+                        </div>
+
+                        <a href="#" class="add-btn">
+                            Add to Cart
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    Product Image
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Electronics
+                    </div>
+
+                    <div class="product-name">
+                        Smart Watch
+                    </div>
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+                    <div class="product-bottom">
+
+                        <div class="price">
+                            ₱1,999
+                        </div>
+
+                        <a href="#" class="add-btn">
+                            Add to Cart
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROMOTION ================= -->
+
+    <section class="promo">
+
+        <div>
+
+            <h2>
+                Discover Something New
+            </h2>
+
+            <p>
+                Explore exclusive products and special offers
+                available at Valora.
+            </p>
+
+        </div>
+
+        <a href="#" class="promo-btn">
+            Shop Now
+        </a>
+
+    </section>
+
+
+    <!-- ================= WHY VALORA ================= -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    The Valora Difference
+                </h2>
+
+                <p>
+                    Designed around a better shopping experience.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Quality Selection
+                </h3>
+
+                <p>
+                    Carefully selected products from
+                    trusted sellers.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Secure Shopping
+                </h3>
+
+                <p>
+                    A safe and reliable platform for
+                    every transaction.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Convenient Delivery
+                </h3>
+
+                <p>
+                    Track your order from checkout
+                    to delivery.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    VALORA
+                </h2>
+
+                <p>
+                    A modern e-commerce platform designed
+                    to make online shopping simple,
+                    convenient, and enjoyable.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    SHOP
+                </h3>
+
+                <a href="#">Products</a>
+                <a href="#">Categories</a>
+                <a href="#">Deals</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    ACCOUNT
+                </h3>
+
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+                <a href="#">My Orders</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    SUPPORT
+                </h3>
+
+                <a href="#">Contact Us</a>
+                <a href="#">FAQs</a>
+                <a href="#">Terms & Conditions</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Valora. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
