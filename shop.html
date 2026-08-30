@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Valora | Shop</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+
+            background: #ffffff;
+
+            color: #24152f;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+
+            height: 78px;
+
+            padding: 0 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background: #4b2673;
+
+            border-bottom: 1px solid #eee9f1;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .logo {
+
+            font-size: 26px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            color: white;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 32px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+
+            color: #4c4650;
+
+            font-size: 14px;
+
+            font-weight: 500;
+        }
+
+
+        .nav-links a:hover {
+
+            color: #4b2673;
+        }
+
+
+        .nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+
+        .login {
+
+            color: #4b2673;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .cart {
+
+            color: #4b2673;
+
+            font-size: 18px;
+        }
+
+
+        /* ================= PAGE HEADER ================= */
+
+        .page-header {
+
+            background: #f6f1f9;
+
+            padding: 60px 7% 50px;
+        }
+
+
+        .page-header h1 {
+
+            font-size: 40px;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .page-header p {
+
+            color: #77707b;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= SHOP AREA ================= */
+
+        .shop-container {
+
+            padding: 50px 7% 90px;
+
+            display: grid;
+
+            grid-template-columns: 210px 1fr;
+
+            gap: 45px;
+        }
+
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar h3 {
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .category-list {
+
+            list-style: none;
+        }
+
+
+        .category-list li {
+
+            margin-bottom: 15px;
+        }
+
+
+        .category-list a {
+
+            color: #77707b;
+
+            font-size: 13px;
+        }
+
+
+        .category-list a:hover {
+
+            color: #4b2673;
+        }
+
+
+        .category-list .active {
+
+            color: #4b2673;
+
+            font-weight: 600;
+        }
+
+
+        .filter-title {
+
+            margin-top: 40px;
+
+            margin-bottom: 15px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        .price-filter {
+
+            display: flex;
+
+            gap: 8px;
+        }
+
+
+        .price-filter input {
+
+            width: 80px;
+
+            padding: 9px;
+
+            border: 1px solid #ddd6e1;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 12px;
+        }
+
+
+        /* ================= SHOP TOP ================= */
+
+        .shop-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+        }
+
+
+        .results {
+
+            font-size: 13px;
+
+            color: #77707b;
+        }
+
+
+        .sort {
+
+            border: 1px solid #ddd6e1;
+
+            padding: 10px 12px;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            color: #4c4650;
+
+            background: white;
+        }
+
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .product {
+
+            background: white;
+
+            border: 1px solid #eee9f1;
+
+            transition: 0.25s;
+        }
+
+
+        .product:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(50,30,65,0.08);
+        }
+
+
+        .product-image {
+
+            height: 250px;
+
+            background: #f5f1f7;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #9b8ca4;
+
+            font-size: 12px;
+
+            position: relative;
+        }
+
+
+        .wishlist {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 15px;
+
+            width: 32px;
+
+            height: 32px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #4b2673;
+
+            font-size: 14px;
+        }
+
+
+        .product-info {
+
+            padding: 20px;
+        }
+
+
+        .product-category {
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            color: #8a7b94;
+
+            margin-bottom: 8px;
+        }
+
+
+        .product-name {
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            margin-bottom: 10px;
+        }
+
+
+        .rating {
+
+            color: #9a7b32;
+
+            font-size: 12px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .product-bottom {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .price {
+
+            color: #4b2673;
+
+            font-size: 16px;
+
+            font-weight: 700;
+        }
+
+
+        .add-btn {
+
+            padding: 8px 12px;
+
+            border: 1px solid #d8cbe0;
+
+            color: #4b2673;
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+
+        .add-btn:hover {
+
+            background: #4b2673;
+
+            color: white;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            background: #24152f;
+
+            color: white;
+
+            padding: 60px 7% 25px;
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            margin-bottom: 45px;
+        }
+
+
+        .footer-brand h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .footer-brand p {
+
+            color: #bdb2c4;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            max-width: 300px;
+        }
+
+
+        .footer-column h3 {
+
+            font-size: 12px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .footer-column a {
+
+            display: block;
+
+            color: #bdb2c4;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .footer-column a:hover {
+
+            color: white;
+        }
+
+
+        .copyright {
+
+            border-top: 1px solid #44344d;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            color: #928698;
+
+            font-size: 11px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                display: none;
+            }
+
+
+            .shop-container {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .sidebar {
+
+                display: none;
+            }
+
+
+            .products {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .products {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .shop-container {
+
+                padding: 40px 5%;
+            }
+
+
+            .page-header {
+
+                padding: 45px 5%;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <a href="index.html"
+           class="logo">
+
+            VALORA
+
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="shop.html">
+                    Shop
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Categories
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Deals
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    About
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-actions">
+
+            <a href="login.html"
+               class="login">
+
+                Login
+
+            </a>
+
+
+            <a href="#"
+               class="cart">
+
+                🛒
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= PAGE HEADER ================= -->
+
+    <section class="page-header">
+
+        <h1>
+            Shop
+        </h1>
+
+        <p>
+            Discover products selected for your everyday.
+        </p>
+
+    </section>
+
+
+    <!-- ================= SHOP ================= -->
+
+    <main class="shop-container">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <h3>
+                Categories
+            </h3>
+
+
+            <ul class="category-list">
+
+                <li>
+                    <a href="#"
+                       class="active">
+                        All Products
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Fashion
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Electronics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Beauty
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Home & Living
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Accessories
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="filter-title">
+                PRICE RANGE
+            </div>
+
+
+            <div class="price-filter">
+
+                <input
+                    type="text"
+                    placeholder="Min"
+                >
+
+                <input
+                    type="text"
+                    placeholder="Max"
+                >
+
+            </div>
+
+        </aside>
+
+
+        <!-- PRODUCTS AREA -->
+
+        <section>
+
+
+            <div class="shop-top">
+
+                <div class="results">
+                    Showing 8 products
+                </div>
+
+
+                <select class="sort">
+
+                    <option>
+                        Sort: Featured
+                    </option>
+
+                    <option>
+                        Price: Low to High
+                    </option>
+
+                    <option>
+                        Price: High to Low
+                    </option>
+
+                    <option>
+                        Newest
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="products">
+
+
+                <!-- PRODUCT 1 -->
+
+                <div class="product">
+
+                    <div class="product-image">
+
+                        Product Image
+
+                        <div class="wishlist">
+                            ♡
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <div class="product-category">
+                            Fashion
+                        </div>
+
+                        <div class="product-name">
+                            Classic Everyday Sneakers
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                ₱1,299
+                            </div>
+
+                            <a href="#"
+                               class="add-btn">
+
+                                Add to Cart
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 2 -->
+
+                <div class="product">
+
+                    <div class="product-image">
+
+                        Product Image
+
+                        <div class="wishlist">
+                            ♡
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <div class="product-category">
+                            Electronics
+                        </div>
+
+                        <div class="product-name">
+                            Wireless Headphones
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                ₱899
+                            </div>
+
+                            <a href="#"
+                               class="add-btn">
+
+                                Add to Cart
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 3 -->
+
+                <div class="product">
+
+                    <div class="product-image">
+
+                        Product Image
+
+                        <div class="wishlist">
+                            ♡
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <div class="product-category">
+                            Accessories
+                        </div>
+
+                        <div class="product-name">
+                            Minimal Leather Bag
+                        </div>
+
+                        <div class="rating">
+                            ★★★★☆
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                ₱1,499
+                            </div>
+
+                            <a href="#"
+                               class="add-btn">
+
+                                Add to Cart
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 4 -->
+
+                <div class="product">
+
+                    <div class="product-image">
+
+                        Product Image
+
+                        <div class="wishlist">
+                            ♡
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <div class="product-category">
+                            Electronics
+                        </div>
+
+                        <div class="product-name">
+                            Smart Watch
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                ₱1,999
+                            </div>
+
+                            <a href="#"
+                               class="add-btn">
+
+                                Add to Cart
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 5 -->
+
+                <div class="product">
+
+                    <div class="product-image">
+
+                        Product Image
+
+                        <div class="wishlist">
+                            ♡
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <div class="product-category">
+                            Beauty
+                        </div>
+
+                        <div class="product-name">
+                            Daily Care Essentials
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                ₱599
+                            </div>
+
+                            <a href="#"
+                               class="add-btn">
+
+                                Add to Cart
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 6 -->
+
+                <div class="product">
+
+                    <div class="product-image">
+
+                        Product Image
+
+                        <div class="wishlist">
+                            ♡
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <div class="product-category">
+                            Home
+                        </div>
+
+                        <div class="product-name">
+                            Minimal Home Organizer
+                        </div>
+
+                        <div class="rating">
+                            ★★★★☆
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                ₱749
+                            </div>
+
+                            <a href="#"
+                               class="add-btn">
+
+                                Add to Cart
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 7 -->
+
+                <div class="product">
+
+                    <div class="product-image">
+
+                        Product Image
+
+                        <div class="wishlist">
+                            ♡
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <div class="product-category">
+                            Fashion
+                        </div>
+
+                        <div class="product-name">
+                            Essential Everyday Shirt
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                ₱699
+                            </div>
+
+                            <a href="#"
+                               class="add-btn">
+
+                                Add to Cart
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 8 -->
+
+                <div class="product">
+
+                    <div class="product-image">
+
+                        Product Image
+
+                        <div class="wishlist">
+                            ♡
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <div class="product-category">
+                            Accessories
+                        </div>
+
+                        <div class="product-name">
+                            Classic Everyday Watch
+                        </div>
+
+                        <div class="rating">
+                            ★★★★☆
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                ₱1,199
+                            </div>
+
+                            <a href="#"
+                               class="add-btn">
+
+                                Add to Cart
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    VALORA
+                </h2>
+
+                <p>
+
+                    A modern e-commerce platform
+                    designed to make online shopping
+                    simple, convenient, and enjoyable.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    SHOP
+                </h3>
+
+                <a href="#">
+                    Products
+                </a>
+
+                <a href="#">
+                    Categories
+                </a>
+
+                <a href="#">
+                    Deals
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    ACCOUNT
+                </h3>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="register.html">
+                    Register
+                </a>
+
+                <a href="#">
+                    My Orders
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    SUPPORT
+                </h3>
+
+                <a href="#">
+                    Contact Us
+                </a>
+
+                <a href="#">
+                    FAQs
+                </a>
+
+                <a href="#">
+                    Terms & Conditions
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Valora. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Valora | Product Details</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #24152f;
+            background: white;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* NAVBAR */
+
+        nav {
+            height: 78px;
+            padding: 0 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #eee9f1;
+
+            position: sticky;
+            top: 0;
+
+            background: #4b2673;
+            z-index: 100;
+        }
+
+
+        .logo {
+            color: white;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            color: #4c4650;
+            font-size: 14px;
+        }
+
+
+        .nav-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+
+        .login {
+            color: #4b2673;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        .cart {
+            color: #4b2673;
+            font-size: 18px;
+        }
+
+
+        /* BREADCRUMB */
+
+        .breadcrumb {
+            padding: 25px 7%;
+
+            font-size: 12px;
+
+            color: #8a828e;
+        }
+
+
+        .breadcrumb a {
+            color: #4b2673;
+        }
+
+
+        /* PRODUCT */
+
+        .product-container {
+
+            padding: 30px 7% 90px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+        }
+
+
+        /* IMAGE */
+
+        .product-image {
+
+            height: 550px;
+
+            background: #f5f1f7;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #9b8ca4;
+
+            font-size: 13px;
+        }
+
+
+        /* DETAILS */
+
+        .product-details {
+            padding-top: 15px;
+        }
+
+
+        .category {
+
+            color: #8a7b94;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .product-details h1 {
+
+            font-size: 34px;
+
+            line-height: 1.2;
+
+            margin-bottom: 15px;
+        }
+
+
+        .rating {
+
+            color: #9a7b32;
+
+            font-size: 13px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .price {
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            color: #4b2673;
+
+            margin-bottom: 25px;
+        }
+
+
+        .description {
+
+            color: #6f6873;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* OPTIONS */
+
+        .option-title {
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 12px;
+        }
+
+
+        .sizes {
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .size {
+
+            width: 45px;
+
+            height: 40px;
+
+            border: 1px solid #ddd6e1;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 12px;
+
+            cursor: pointer;
+        }
+
+
+        .size:hover {
+
+            border-color: #4b2673;
+
+            color: #4b2673;
+        }
+
+
+        /* QUANTITY */
+
+        .quantity {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .quantity button {
+
+            width: 35px;
+
+            height: 35px;
+
+            border: 1px solid #ddd6e1;
+
+            background: white;
+
+            cursor: pointer;
+
+            font-size: 16px;
+        }
+
+
+        .quantity span {
+
+            font-size: 14px;
+
+            min-width: 20px;
+
+            text-align: center;
+        }
+
+
+        /* BUTTONS */
+
+        .buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .add-cart {
+
+            flex: 1;
+
+            background: #4b2673;
+
+            color: white;
+
+            border: none;
+
+            padding: 15px;
+
+            font-family: inherit;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+
+        .buy-now {
+
+            flex: 1;
+
+            background: white;
+
+            color: #4b2673;
+
+            border: 1px solid #4b2673;
+
+            padding: 15px;
+
+            font-family: inherit;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+
+        .add-cart:hover {
+
+            background: #32194f;
+        }
+
+
+        .buy-now:hover {
+
+            background: #f6f1f9;
+        }
+
+
+        /* INFO */
+
+        .product-info {
+
+            border-top: 1px solid #eee9f1;
+
+            padding-top: 25px;
+        }
+
+
+        .info-row {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+
+            font-size: 12px;
+
+            color: #6f6873;
+        }
+
+
+        .info-row strong {
+
+            color: #302337;
+
+            min-width: 100px;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            background: #24152f;
+
+            color: white;
+
+            padding: 55px 7% 25px;
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            margin-bottom: 40px;
+        }
+
+
+        .footer-brand h2 {
+
+            font-size: 24px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .footer-brand p {
+
+            color: #bdb2c4;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            max-width: 300px;
+        }
+
+
+        .footer-column h3 {
+
+            font-size: 12px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .footer-column a {
+
+            display: block;
+
+            color: #bdb2c4;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .copyright {
+
+            border-top: 1px solid #44344d;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            color: #928698;
+
+            font-size: 11px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .product-container {
+
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+
+            .product-image {
+
+                height: 400px;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .product-container {
+
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+
+            .buttons {
+
+                flex-direction: column;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <a href="index.html"
+           class="logo">
+
+            VALORA
+
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="shop.html">
+                    Shop
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Categories
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Deals
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    About
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-actions">
+
+            <a href="login.html"
+               class="login">
+                Login
+            </a>
+
+            <a href="#"
+               class="cart">
+                🛒
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="shop.html">
+            Shop
+        </a>
+
+        &nbsp; / &nbsp;
+
+        Product
+
+    </div>
+
+
+    <!-- PRODUCT -->
+
+    <main class="product-container">
+
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="product-image">
+
+            Product Image
+
+        </div>
+
+
+        <!-- PRODUCT DETAILS -->
+
+        <div class="product-details">
+
+
+            <div class="category">
+                Fashion
+            </div>
+
+
+            <h1>
+                Classic Everyday Sneakers
+            </h1>
+
+
+            <div class="rating">
+                ★★★★★ &nbsp; 4.9 (128 reviews)
+            </div>
+
+
+            <div class="price">
+                ₱1,299
+            </div>
+
+
+            <p class="description">
+
+                Designed for everyday comfort and
+                effortless style. These versatile
+                sneakers are perfect for casual
+                outings, school, and everyday wear.
+
+            </p>
+
+
+            <!-- SIZE -->
+
+            <div class="option-title">
+                SELECT SIZE
+            </div>
+
+
+            <div class="sizes">
+
+                <div class="size">
+                    6
+                </div>
+
+                <div class="size">
+                    7
+                </div>
+
+                <div class="size">
+                    8
+                </div>
+
+                <div class="size">
+                    9
+                </div>
+
+                <div class="size">
+                    10
+                </div>
+
+            </div>
+
+
+            <!-- QUANTITY -->
+
+            <div class="option-title">
+                QUANTITY
+            </div>
+
+
+            <div class="quantity">
+
+                <button>
+                    −
+                </button>
+
+                <span>
+                    1
+                </span>
+
+                <button>
+                    +
+                </button>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+                <a href="cart.html" class="add-cart">
+                    ADD TO CART
+                </button>
+
+                <button class="buy-now">
+                    BUY NOW
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT INFO -->
+
+            <div class="product-info">
+
+
+                <div class="info-row">
+
+                    <strong>
+                        Availability
+                    </strong>
+
+                    In Stock
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <strong>
+                        Delivery
+                    </strong>
+
+                    Available nationwide
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <strong>
+                        Seller
+                    </strong>
+
+                    Valora Marketplace Seller
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    VALORA
+                </h2>
+
+                <p>
+                    A modern e-commerce platform
+                    designed to make online shopping
+                    simple, convenient, and enjoyable.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    SHOP
+                </h3>
+
+                <a href="shop.html">
+                    Products
+                </a>
+
+                <a href="#">
+                    Categories
+                </a>
+
+                <a href="#">
+                    Deals
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    ACCOUNT
+                </h3>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="register.html">
+                    Register
+                </a>
+
+                <a href="#">
+                    My Orders
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    SUPPORT
+                </h3>
+
+                <a href="#">
+                    Contact Us
+                </a>
+
+                <a href="#">
+                    FAQs
+                </a>
+
+                <a href="#">
+                    Terms & Conditions
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Valora. All Rights Reserved.
+
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Valora | Seller Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f7f5f8;
+            color: #24152f;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 75px;
+            background: #4b2673;
+            border-bottom: 1px solid #eee9f1;
+
+            padding: 0 5%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .seller-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .seller-name {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+
+            border-radius: 50%;
+
+            background: #eee5f3;
+            color: #4b2673;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* LAYOUT */
+
+        .dashboard {
+            display: flex;
+            min-height: calc(100vh - 75px);
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            width: 235px;
+
+            background: white;
+
+            border-right: 1px solid #eee9f1;
+
+            padding: 30px 18px;
+        }
+
+        .store-card {
+            padding: 18px;
+
+            background: #f5f0f7;
+
+            margin-bottom: 25px;
+        }
+
+        .store-card p {
+            font-size: 9px;
+            color: #8a828e;
+
+            margin-bottom: 6px;
+        }
+
+        .store-card h3 {
+            font-size: 13px;
+            color: #4b2673;
+        }
+
+        .menu-title {
+            font-size: 9px;
+            color: #a098a5;
+
+            letter-spacing: 1px;
+
+            margin: 20px 12px 10px;
+        }
+
+        .menu {
+            list-style: none;
+        }
+
+        .menu li {
+            margin-bottom: 4px;
+        }
+
+        .menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 12px;
+
+            color: #6f6873;
+
+            font-size: 12px;
+
+            border-radius: 5px;
+        }
+
+        .menu a:hover,
+        .menu .active {
+            background: #f1eaf5;
+            color: #4b2673;
+            font-weight: 600;
+        }
+
+        /* CONTENT */
+
+        .content {
+            flex: 1;
+
+            padding: 40px 4%;
+
+            max-width: 1400px;
+        }
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .welcome h1 {
+            font-size: 25px;
+            margin-bottom: 7px;
+        }
+
+        .welcome p {
+            color: #817884;
+            font-size: 12px;
+        }
+
+        /* STATS */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+
+            border: 1px solid #eee9f1;
+
+            padding: 20px;
+        }
+
+        .stat-card p {
+            color: #8a828e;
+
+            font-size: 9px;
+
+            margin-bottom: 10px;
+        }
+
+        .stat-card h2 {
+            color: #4b2673;
+
+            font-size: 22px;
+        }
+
+        .stat-change {
+            margin-top: 7px;
+
+            color: #6f6873;
+
+            font-size: 9px;
+        }
+
+        /* GRID */
+
+        .main-grid {
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr;
+
+            gap: 20px;
+        }
+
+        .section {
+            background: white;
+
+            border: 1px solid #eee9f1;
+
+            margin-bottom: 20px;
+        }
+
+        .section-header {
+            padding: 20px;
+
+            border-bottom: 1px solid #eee9f1;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-header h2 {
+            font-size: 14px;
+        }
+
+        .section-header a {
+            color: #4b2673;
+
+            font-size: 9px;
+
+            font-weight: 600;
+        }
+
+        /* SALES */
+
+        .sales-content {
+            padding: 25px;
+        }
+
+        .sales-number {
+            font-size: 27px;
+
+            font-weight: 700;
+
+            color: #4b2673;
+
+            margin-bottom: 5px;
+        }
+
+        .sales-label {
+            color: #8a828e;
+
+            font-size: 10px;
+        }
+
+        .chart {
+            height: 160px;
+
+            margin-top: 25px;
+
+            display: flex;
+
+            align-items: end;
+
+            gap: 12px;
+
+            border-bottom: 1px solid #ddd6e1;
+
+            padding: 0 10px;
+        }
+
+        .bar {
+            flex: 1;
+
+            background: #dcd0e5;
+
+            min-height: 25px;
+
+            position: relative;
+        }
+
+        .bar:hover {
+            background: #4b2673;
+        }
+
+        .bar-label {
+            position: absolute;
+
+            top: calc(100% + 8px);
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-size: 8px;
+
+            color: #8a828e;
+        }
+
+        /* ORDERS */
+
+        .order {
+            padding: 18px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            border-bottom: 1px solid #eee9f1;
+        }
+
+        .order:last-child {
+            border-bottom: none;
+        }
+
+        .order-id {
+            flex: 1;
+        }
+
+        .order-id strong {
+            display: block;
+
+            font-size: 11px;
+
+            margin-bottom: 5px;
+        }
+
+        .order-id span {
+            color: #8a828e;
+
+            font-size: 9px;
+        }
+
+        .order-price {
+            color: #4b2673;
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+        .status {
+            padding: 5px 9px;
+
+            background: #f1eaf5;
+
+            color: #4b2673;
+
+            border-radius: 15px;
+
+            font-size: 8px;
+
+            font-weight: 600;
+        }
+
+        /* PRODUCTS */
+
+        .product {
+            padding: 18px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            border-bottom: 1px solid #eee9f1;
+        }
+
+        .product:last-child {
+            border-bottom: none;
+        }
+
+        .product-image {
+            width: 48px;
+            height: 48px;
+
+            background: #f5f1f7;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #9b8ca4;
+
+            font-size: 8px;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-info strong {
+            display: block;
+
+            font-size: 10px;
+
+            margin-bottom: 5px;
+        }
+
+        .product-info span {
+            color: #8a828e;
+
+            font-size: 9px;
+        }
+
+        .stock {
+            color: #4b2673;
+
+            font-size: 9px;
+
+            font-weight: 600;
+        }
+
+        /* COMMISSION */
+
+        .commission {
+            padding: 25px;
+        }
+
+        .commission-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 14px;
+
+            font-size: 10px;
+
+            color: #77707b;
+        }
+
+        .commission-total {
+            border-top: 1px solid #eee9f1;
+
+            padding-top: 17px;
+
+            display: flex;
+
+            justify-content: space-between;
+        }
+
+        .commission-total strong {
+            font-size: 13px;
+        }
+
+        .commission-total span {
+            color: #4b2673;
+
+            font-size: 16px;
+
+            font-weight: 700;
+        }
+
+        /* QUICK ACTIONS */
+
+        .quick-actions {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 10px;
+
+            padding: 20px;
+        }
+
+        .quick-action {
+            border: 1px solid #eee9f1;
+
+            padding: 17px;
+
+            text-align: center;
+
+            color: #4b2673;
+
+            font-size: 10px;
+
+            font-weight: 600;
+        }
+
+        .quick-action:hover {
+            border-color: #4b2673;
+
+            background: #faf8fb;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 950px) {
+
+            .sidebar {
+                width: 200px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            .dashboard {
+                display: block;
+            }
+
+            .sidebar {
+                width: 100%;
+
+                border-right: none;
+
+                border-bottom: 1px solid #eee9f1;
+            }
+
+            .store-card {
+                display: none;
+            }
+
+            .menu {
+                display: flex;
+
+                overflow-x: auto;
+
+                gap: 5px;
+            }
+
+            .menu a {
+                white-space: nowrap;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <a href="index.html"
+           class="logo">
+
+            VALORA
+
+        </a>
+
+
+        <div class="seller-area">
+
+            <span class="seller-name">
+                Luna Boutique
+            </span>
+
+            <div class="avatar">
+                L
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+
+            <div class="store-card">
+
+                <p>
+                    SELLER STORE
+                </p>
+
+                <h3>
+                    Luna Boutique
+                </h3>
+
+            </div>
+
+
+            <div class="menu-title">
+                MAIN MENU
+            </div>
+
+
+            <ul class="menu">
+
+
+                <li>
+
+                    <a href="#"
+                       class="active">
+
+                        📊
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="seller-products.html">
+
+                        📦
+                        Products
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+
+                        🏷️
+                        Inventory
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="seller-orders.html">
+
+                        🛒
+                        Orders
+
+                    </a>
+
+                </li>
+
+
+                <div class="menu-title">
+                    BUSINESS
+                </div>
+
+
+                <li>
+
+                    <a href="#">
+
+                        💰
+                        Earnings
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+
+                        📈
+                        Sales Analytics
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+
+                        ⚙️
+                        Store Settings
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+
+        </aside>
+
+
+        <!-- CONTENT -->
+
+        <main class="content">
+
+
+            <div class="welcome">
+
+                <h1>
+                    Seller Dashboard
+                </h1>
+
+                <p>
+                    Manage your store, products, orders, and sales.
+                </p>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+
+                <div class="stat-card">
+
+                    <p>
+                        TOTAL SALES
+                    </p>
+
+                    <h2>
+                        ₱48,250
+                    </h2>
+
+                    <div class="stat-change">
+                        This month
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <p>
+                        ORDERS
+                    </p>
+
+                    <h2>
+                        86
+                    </h2>
+
+                    <div class="stat-change">
+                        12 new orders
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <p>
+                        PRODUCTS
+                    </p>
+
+                    <h2>
+                        34
+                    </h2>
+
+                    <div class="stat-change">
+                        3 low stock
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <p>
+                        NET EARNINGS
+                    </p>
+
+                    <h2>
+                        ₱43,425
+                    </h2>
+
+                    <div class="stat-change">
+                        After 10% commission
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- MAIN GRID -->
+
+            <div class="main-grid">
+
+
+                <!-- SALES -->
+
+                <section class="section">
+
+
+                    <div class="section-header">
+
+                        <h2>
+                            Sales Overview
+                        </h2>
+
+                        <a href="#">
+                            VIEW REPORT
+                        </a>
+
+                    </div>
+
+
+                    <div class="sales-content">
+
+                        <div class="sales-number">
+                            ₱48,250
+                        </div>
+
+                        <div class="sales-label">
+                            Total sales this month
+                        </div>
+
+
+                        <div class="chart">
+
+                            <div class="bar"
+                                 style="height: 35%;">
+
+                                <span class="bar-label">
+                                    W1
+                                </span>
+
+                            </div>
+
+
+                            <div class="bar"
+                                 style="height: 50%;">
+
+                                <span class="bar-label">
+                                    W2
+                                </span>
+
+                            </div>
+
+
+                            <div class="bar"
+                                 style="height: 65%;">
+
+                                <span class="bar-label">
+                                    W3
+                                </span>
+
+                            </div>
+
+
+                            <div class="bar"
+                                 style="height: 85%;">
+
+                                <span class="bar-label">
+                                    W4
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- COMMISSION -->
+
+                <section class="section">
+
+
+                    <div class="section-header">
+
+                        <h2>
+                            Platform Commission
+                        </h2>
+
+                    </div>
+
+
+                    <div class="commission">
+
+
+                        <div class="commission-row">
+
+                            <span>
+                                Gross Sales
+                            </span>
+
+                            <span>
+                                ₱48,250
+                            </span>
+
+                        </div>
+
+
+                        <div class="commission-row">
+
+                            <span>
+                                Valora Commission
+                            </span>
+
+                            <span>
+                                10%
+                            </span>
+
+                        </div>
+
+
+                        <div class="commission-row">
+
+                            <span>
+                                Commission Amount
+                            </span>
+
+                            <span>
+                                ₱4,825
+                            </span>
+
+                        </div>
+
+
+                        <div class="commission-total">
+
+                            <strong>
+                                Net Earnings
+                            </strong>
+
+                            <span>
+                                ₱43,425
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- RECENT ORDERS -->
+
+                <section class="section">
+
+
+                    <div class="section-header">
+
+                        <h2>
+                            Recent Orders
+                        </h2>
+
+                        <a href="#">
+                            VIEW ALL
+                        </a>
+
+                    </div>
+
+
+                    <div class="order">
+
+                        <div class="order-id">
+
+                            <strong>
+                                #VAL-2026-0826
+                            </strong>
+
+                            <span>
+                                Classic Sneakers · Qty 1
+                            </span>
+
+                        </div>
+
+                        <div class="status">
+                            TO SHIP
+                        </div>
+
+                        <div class="order-price">
+                            ₱1,299
+                        </div>
+
+                    </div>
+
+
+                    <div class="order">
+
+                        <div class="order-id">
+
+                            <strong>
+                                #VAL-2026-0824
+                            </strong>
+
+                            <span>
+                                Summer Dress · Qty 2
+                            </span>
+
+                        </div>
+
+                        <div class="status">
+                            TO SHIP
+                        </div>
+
+                        <div class="order-price">
+                            ₱1,998
+                        </div>
+
+                    </div>
+
+
+                    <div class="order">
+
+                        <div class="order-id">
+
+                            <strong>
+                                #VAL-2026-0822
+                            </strong>
+
+                            <span>
+                                Mini Backpack · Qty 1
+                            </span>
+
+                        </div>
+
+                        <div class="status">
+                            COMPLETED
+                        </div>
+
+                        <div class="order-price">
+                            ₱1,150
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- PRODUCTS -->
+
+                <section class="section">
+
+
+                    <div class="section-header">
+
+                        <h2>
+                            Product Inventory
+                        </h2>
+
+                        <a href="#">
+                            MANAGE
+                        </a>
+
+                    </div>
+
+
+                    <div class="product">
+
+
+                        <div class="product-image">
+                            Image
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <strong>
+                                Classic Sneakers
+                            </strong>
+
+                            <span>
+                                Fashion
+                            </span>
+
+                        </div>
+
+
+                        <div class="stock">
+                            42 in stock
+                        </div>
+
+                    </div>
+
+
+                    <div class="product">
+
+
+                        <div class="product-image">
+                            Image
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <strong>
+                                Summer Dress
+                            </strong>
+
+                            <span>
+                                Fashion
+                            </span>
+
+                        </div>
+
+
+                        <div class="stock">
+                            18 in stock
+                        </div>
+
+                    </div>
+
+
+                    <div class="product">
+
+
+                        <div class="product-image">
+                            Image
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <strong>
+                                Mini Backpack
+                            </strong>
+
+                            <span>
+                                Bags
+                            </span>
+
+                        </div>
+
+
+                        <div class="stock">
+                            7 in stock
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- QUICK ACTIONS -->
+
+                <section class="section">
+
+
+                    <div class="section-header">
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+
+                        <a href="#"
+                           class="quick-action">
+
+                            ＋ Add Product
+
+                        </a>
+
+
+                        <a href="#"
+                           class="quick-action">
+
+                            📦 Manage Orders
+
+                        </a>
+
+
+                        <a href="#"
+                           class="quick-action">
+
+                            🏷️ Update Inventory
+
+                        </a>
+
+
+                        <a href="#"
+                           class="quick-action">
+
+                            📊 View Analytics
+
+                        </a>
+
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+</body>
+
+</html>

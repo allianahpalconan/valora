@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Valora | Checkout</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f6f9;
+            color: #24152f;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* NAVBAR */
+
+        nav {
+            height: 78px;
+            padding: 0 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: #4b2673;
+            border-bottom: 1px solid #eee9f1;
+        }
+
+
+        .logo {
+            color: white;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+
+        .secure {
+            color: #77707b;
+            font-size: 12px;
+        }
+
+
+        /* HEADER */
+
+        .page-header {
+            background: #f0eaf4;
+            padding: 50px 7%;
+        }
+
+
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+
+        .page-header p {
+            color: #77707b;
+            font-size: 13px;
+        }
+
+
+        /* MAIN */
+
+        .checkout-container {
+            max-width: 1400px;
+            margin: auto;
+
+            padding: 50px 7% 90px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 350px;
+
+            gap: 35px;
+        }
+
+
+        /* LEFT */
+
+        .checkout-section {
+            background: white;
+
+            border: 1px solid #eee9f1;
+
+            padding: 28px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .number {
+            width: 28px;
+            height: 28px;
+
+            border-radius: 50%;
+
+            background: #4b2673;
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        .section-heading h2 {
+            font-size: 16px;
+        }
+
+
+        /* FORM */
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+
+        label {
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        input,
+        select {
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #ddd6e1;
+
+            background: white;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            color: #403747;
+        }
+
+
+        input:focus,
+        select:focus {
+            border-color: #4b2673;
+        }
+
+
+        /* DELIVERY */
+
+        .delivery-option {
+            border: 1px solid #ddd6e1;
+
+            padding: 17px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 12px;
+
+            cursor: pointer;
+        }
+
+
+        .delivery-option:hover {
+            border-color: #4b2673;
+        }
+
+
+        .delivery-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+
+        .delivery-left input {
+            width: auto;
+        }
+
+
+        .delivery-name {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        .delivery-description {
+            font-size: 10px;
+            color: #8a828e;
+            margin-top: 4px;
+        }
+
+
+        .delivery-price {
+            font-size: 12px;
+            font-weight: 600;
+            color: #4b2673;
+        }
+
+
+        /* PAYMENT */
+
+        .payment-option {
+            border: 1px solid #ddd6e1;
+
+            padding: 17px;
+
+            margin-bottom: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            cursor: pointer;
+        }
+
+
+        .payment-option input {
+            width: auto;
+        }
+
+
+        .payment-option span {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+
+        /* SUMMARY */
+
+        .summary {
+            background: white;
+
+            border: 1px solid #eee9f1;
+
+            padding: 28px;
+
+            height: fit-content;
+
+            position: sticky;
+
+            top: 25px;
+        }
+
+
+        .summary h2 {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+
+        .summary-product {
+            display: flex;
+
+            gap: 12px;
+
+            padding-bottom: 18px;
+
+            margin-bottom: 18px;
+
+            border-bottom: 1px solid #eee9f1;
+        }
+
+
+        .summary-image {
+            width: 65px;
+            height: 65px;
+
+            background: #f5f1f7;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: #9b8ca4;
+
+            font-size: 8px;
+        }
+
+
+        .summary-product-info {
+            flex: 1;
+        }
+
+
+        .summary-product-name {
+            font-size: 11px;
+            font-weight: 600;
+
+            margin-bottom: 5px;
+        }
+
+
+        .summary-product-info p {
+            color: #8a828e;
+            font-size: 9px;
+        }
+
+
+        .summary-product-price {
+            color: #4b2673;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        .summary-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 14px;
+
+            font-size: 11px;
+
+            color: #77707b;
+        }
+
+
+        .summary-total {
+            border-top: 1px solid #eee9f1;
+
+            padding-top: 18px;
+
+            margin-top: 8px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .summary-total span:first-child {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .total {
+            color: #4b2673;
+
+            font-size: 21px;
+
+            font-weight: 700;
+        }
+
+
+        .place-order {
+            display: block;
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            background: #4b2673;
+
+            color: white;
+
+            border: none;
+
+            text-align: center;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+
+        .place-order:hover {
+            background: #32194f;
+        }
+
+
+        .secure-note {
+            text-align: center;
+
+            margin-top: 15px;
+
+            color: #8a828e;
+
+            font-size: 9px;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #24152f;
+
+            color: white;
+
+            padding: 45px 7% 25px;
+
+            text-align: center;
+        }
+
+
+        footer h2 {
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+
+        footer p {
+            color: #bdb2c4;
+
+            font-size: 11px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .copyright {
+            border-top: 1px solid #44344d;
+
+            padding-top: 18px;
+
+            color: #928698;
+
+            font-size: 10px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+
+
+            .summary {
+                position: static;
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <a href="index.html"
+           class="logo">
+
+            VALORA
+
+        </a>
+
+
+        <div class="secure">
+            Secure Checkout
+        </div>
+
+    </nav>
+
+
+    <!-- HEADER -->
+
+    <section class="page-header">
+
+        <h1>
+            Checkout
+        </h1>
+
+        <p>
+            Complete your order securely.
+        </p>
+
+    </section>
+
+
+    <!-- CHECKOUT -->
+
+    <main class="checkout-container">
+
+
+        <!-- LEFT SIDE -->
+
+        <section>
+
+
+            <!-- SHIPPING -->
+
+            <div class="checkout-section">
+
+                <div class="section-heading">
+
+                    <div class="number">
+                        1
+                    </div>
+
+                    <h2>
+                        Shipping Information
+                    </h2>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            FIRST NAME
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="First name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            LAST NAME
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Last name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            PHONE NUMBER
+                        </label>
+
+                        <input
+                            type="tel"
+                            placeholder="09XX XXX XXXX"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            PROVINCE
+                        </label>
+
+                        <select>
+
+                            <option>
+                                Select Province
+                            </option>
+
+                            <option>
+                                Laguna
+                            </option>
+
+                            <option>
+                                Batangas
+                            </option>
+
+                            <option>
+                                Cavite
+                            </option>
+
+                            <option>
+                                Rizal
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            MUNICIPALITY / CITY
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="City or Municipality"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            BARANGAY
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Barangay"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            HOUSE / UNIT NO.
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="House or unit number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            STREET / BUILDING
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Street, building, subdivision, etc."
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- DELIVERY -->
+
+            <div class="checkout-section">
+
+                <div class="section-heading">
+
+                    <div class="number">
+                        2
+                    </div>
+
+                    <h2>
+                        Delivery Method
+                    </h2>
+
+                </div>
+
+
+                <label class="delivery-option">
+
+                    <div class="delivery-left">
+
+                        <input
+                            type="radio"
+                            name="delivery"
+                            checked
+                        >
+
+                        <div>
+
+                            <div class="delivery-name">
+                                Standard Delivery
+                            </div>
+
+                            <div class="delivery-description">
+                                Estimated delivery: 3–5 business days
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="delivery-price">
+                        ₱80
+                    </div>
+
+                </label>
+
+
+                <label class="delivery-option">
+
+                    <div class="delivery-left">
+
+                        <input
+                            type="radio"
+                            name="delivery"
+                        >
+
+                        <div>
+
+                            <div class="delivery-name">
+                                Express Delivery
+                            </div>
+
+                            <div class="delivery-description">
+                                Estimated delivery: 1–2 business days
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="delivery-price">
+                        ₱150
+                    </div>
+
+                </label>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="checkout-section">
+
+                <div class="section-heading">
+
+                    <div class="number">
+                        3
+                    </div>
+
+                    <h2>
+                        Payment Method
+                    </h2>
+
+                </div>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        checked
+                    >
+
+                    <span>
+                        Cash on Delivery
+                    </span>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                    >
+
+                    <span>
+                        E-Wallet
+                    </span>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                    >
+
+                    <span>
+                        Online Bank Transfer
+                    </span>
+
+                </label>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+
+        <aside class="summary">
+
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="summary-product">
+
+                <div class="summary-image">
+                    Image
+                </div>
+
+
+                <div class="summary-product-info">
+
+                    <div class="summary-product-name">
+                        Classic Everyday Sneakers
+                    </div>
+
+                    <p>
+                        Size: 8 · Qty: 1
+                    </p>
+
+                </div>
+
+
+                <div class="summary-product-price">
+                    ₱1,299
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="summary-product">
+
+                <div class="summary-image">
+                    Image
+                </div>
+
+
+                <div class="summary-product-info">
+
+                    <div class="summary-product-name">
+                        Wireless Headphones
+                    </div>
+
+                    <p>
+                        Black · Qty: 1
+                    </p>
+
+                </div>
+
+
+                <div class="summary-product-price">
+                    ₱899
+                </div>
+
+            </div>
+
+
+            <!-- TOTALS -->
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span>
+                    ₱2,198
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Shipping
+                </span>
+
+                <span>
+                    ₱80
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Discount
+                </span>
+
+                <span>
+                    − ₱0
+                </span>
+
+            </div>
+
+
+            <div class="summary-total">
+
+                <span>
+                    Total
+                </span>
+
+                <span class="total">
+                    ₱2,278
+                </span>
+
+            </div>
+
+
+            <a href="order-success.html"
+               class="place-order">
+
+                PLACE ORDER
+
+            </a>
+
+
+            <div class="secure-note">
+
+                🔒 Your information is protected.
+
+            </div>
+
+
+        </aside>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+            VALORA
+        </h2>
+
+        <p>
+            Simple shopping. Better experiences.
+        </p>
+
+
+        <div class="copyright">
+
+            © 2026 Valora. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

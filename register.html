@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Valora | Create Account</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: 'Inter', sans-serif;
+
+            background: #f6f1f9;
+
+            color: #24152f;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 40px 20px;
+        }
+
+
+        .register-container {
+
+            width: 950px;
+
+            background: white;
+
+            display: grid;
+
+            grid-template-columns: 0.9fr 1.1fr;
+
+            box-shadow:
+                0 20px 60px
+                rgba(50, 30, 65, 0.12);
+        }
+
+
+        /* BRAND SIDE */
+
+        .brand-section {
+
+            background: #4b2673;
+
+            color: white;
+
+            padding: 60px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        .brand-section h1 {
+
+            font-size: 38px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .brand-section p {
+
+            color: #ddd0e7;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            max-width: 300px;
+        }
+
+
+        /* FORM */
+
+        .form-section {
+
+            padding: 50px 60px;
+        }
+
+
+        .form-section h2 {
+
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .subtitle {
+
+            color: #817884;
+
+            font-size: 13px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .input-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+
+        .input-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .input-group label {
+
+            display: block;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            margin-bottom: 7px;
+        }
+
+
+        .input-group input,
+        .input-group select {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #ddd6e1;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            background: white;
+        }
+
+
+        .input-group input:focus,
+        .input-group select:focus {
+
+            border-color: #4b2673;
+        }
+
+
+        /* ACCOUNT TYPE */
+
+        .account-title {
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            margin-bottom: 10px;
+        }
+
+
+        .account-types {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .account-type {
+
+            border: 1px solid #ddd6e1;
+
+            padding: 12px;
+
+            text-align: center;
+
+            font-size: 11px;
+
+            cursor: pointer;
+
+            color: #5d5362;
+        }
+
+
+        .account-type:hover {
+
+            border-color: #4b2673;
+
+            color: #4b2673;
+        }
+
+
+        .register-button {
+
+            width: 100%;
+
+            border: none;
+
+            background: #4b2673;
+
+            color: white;
+
+            padding: 14px;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            margin-top: 5px;
+        }
+
+
+        .register-button:hover {
+
+            background: #32194f;
+        }
+
+
+        .login-text {
+
+            text-align: center;
+
+            margin-top: 22px;
+
+            font-size: 12px;
+
+            color: #817884;
+        }
+
+
+        .login-text a {
+
+            color: #4b2673;
+
+            font-weight: 600;
+        }
+
+
+        .back-home {
+
+            text-align: center;
+
+            margin-top: 18px;
+        }
+
+
+        .back-home a {
+
+            color: #817884;
+
+            font-size: 12px;
+        }
+
+
+        @media (max-width: 750px) {
+
+            .register-container {
+
+                width: 95%;
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .brand-section {
+
+                padding: 40px;
+
+                text-align: center;
+            }
+
+
+            .brand-section p {
+
+                margin: auto;
+            }
+
+
+            .form-section {
+
+                padding: 40px;
+            }
+
+
+            .input-row {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="register-container">
+
+
+        <!-- BRAND -->
+
+        <div class="brand-section">
+
+            <h1>
+                VALORA
+            </h1>
+
+            <p>
+
+                Join Valora and discover a
+                better way to shop, sell,
+                and connect.
+
+            </p>
+
+        </div>
+
+
+        <!-- REGISTER -->
+
+        <div class="form-section">
+
+
+            <h2>
+                Create your account
+            </h2>
+
+
+            <p class="subtitle">
+
+                Enter your details to get started.
+
+            </p>
+
+
+            <form>
+
+
+                <div class="input-row">
+
+
+                    <div class="input-group">
+
+                        <label>
+                            FIRST NAME
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="First name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            LAST NAME
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Last name"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        EMAIL ADDRESS
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        PASSWORD
+                    </label>
+
+                    <input
+                        type="password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        CONFIRM PASSWORD
+                    </label>
+
+                    <input
+                        type="password"
+                        placeholder="Confirm your password"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="account-title">
+
+                    ACCOUNT TYPE
+
+                </div>
+
+
+                <div class="account-types">
+
+                    <div class="account-type">
+                        Buyer
+                    </div>
+
+                    <div class="account-type">
+                        Seller
+                    </div>
+
+                    <div class="account-type">
+                        Courier
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="register-button"
+                >
+
+                    CREATE ACCOUNT
+
+                </button>
+
+
+            </form>
+
+
+            <div class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Sign in
+                </a>
+
+            </div>
+
+
+            <div class="back-home">
+
+                <a href="index.html">
+
+                    ← Back to Valora
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>
+```

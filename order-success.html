@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Valora | Order Confirmed</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+
+            background: #f8f6f9;
+
+            color: #24152f;
+
+            min-height: 100vh;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* NAVBAR */
+
+        nav {
+            height: 78px;
+
+            padding: 0 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background: #4b2673;
+
+            border-bottom: 1px solid #eee9f1;
+        }
+
+
+        .logo {
+            color: white;
+
+            font-size: 26px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+
+        .nav-right {
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+        }
+
+
+        .nav-right a {
+            color: #6f6873;
+
+            font-size: 12px;
+        }
+
+
+        .nav-right a:hover {
+            color: #4b2673;
+        }
+
+
+        /* MAIN */
+
+        .success-container {
+            max-width: 850px;
+
+            margin: 60px auto 90px;
+
+            padding: 0 25px;
+        }
+
+
+        .success-card {
+            background: white;
+
+            border: 1px solid #eee9f1;
+
+            padding: 55px;
+
+            text-align: center;
+        }
+
+
+        /* SUCCESS ICON */
+
+        .success-icon {
+            width: 70px;
+
+            height: 70px;
+
+            margin: 0 auto 25px;
+
+            border-radius: 50%;
+
+            background: #eee5f3;
+
+            color: #4b2673;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 28px;
+
+            font-weight: 700;
+        }
+
+
+        .success-card h1 {
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .success-message {
+            color: #77707b;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            max-width: 500px;
+
+            margin: auto;
+        }
+
+
+        /* ORDER NUMBER */
+
+        .order-number {
+            margin: 30px auto;
+
+            padding: 18px;
+
+            background: #f7f3f9;
+
+            max-width: 400px;
+        }
+
+
+        .order-number span {
+            display: block;
+
+            color: #8a828e;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .order-number strong {
+            color: #4b2673;
+
+            font-size: 16px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* ORDER INFO */
+
+        .order-details {
+            border-top: 1px solid #eee9f1;
+
+            border-bottom: 1px solid #eee9f1;
+
+            padding: 25px 0;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .detail span {
+            display: block;
+
+            color: #8a828e;
+
+            font-size: 10px;
+
+            margin-bottom: 7px;
+
+            text-transform: uppercase;
+        }
+
+
+        .detail strong {
+            font-size: 12px;
+
+            color: #302337;
+        }
+
+
+        /* ACTIONS */
+
+        .actions {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+        }
+
+
+        .primary-btn {
+            background: #4b2673;
+
+            color: white;
+
+            padding: 14px 25px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+
+        .primary-btn:hover {
+            background: #32194f;
+        }
+
+
+        .secondary-btn {
+            border: 1px solid #4b2673;
+
+            color: #4b2673;
+
+            padding: 14px 25px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+
+        .secondary-btn:hover {
+            background: #f3edf6;
+        }
+
+
+        /* NEXT STEPS */
+
+        .next-section {
+            margin-top: 25px;
+
+            background: white;
+
+            border: 1px solid #eee9f1;
+
+            padding: 30px;
+        }
+
+
+        .next-section h2 {
+            font-size: 15px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .steps {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .step {
+            text-align: center;
+
+            padding: 15px;
+        }
+
+
+        .step-number {
+            width: 32px;
+
+            height: 32px;
+
+            margin: 0 auto 12px;
+
+            border-radius: 50%;
+
+            background: #f0eaf4;
+
+            color: #4b2673;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+
+        .step h3 {
+            font-size: 11px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .step p {
+            color: #8a828e;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #24152f;
+
+            color: white;
+
+            padding: 40px 7% 25px;
+
+            text-align: center;
+        }
+
+
+        footer h2 {
+            font-size: 22px;
+
+            margin-bottom: 8px;
+        }
+
+
+        footer p {
+            color: #bdb2c4;
+
+            font-size: 11px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .copyright {
+            border-top: 1px solid #44344d;
+
+            padding-top: 18px;
+
+            color: #928698;
+
+            font-size: 10px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 600px) {
+
+            .success-card {
+                padding: 35px 20px;
+            }
+
+
+            .success-card h1 {
+                font-size: 24px;
+            }
+
+
+            .order-details {
+                grid-template-columns: 1fr;
+            }
+
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+
+            .actions {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <a href="index.html"
+           class="logo">
+
+            VALORA
+
+        </a>
+
+
+        <div class="nav-right">
+
+            <a href="shop.html">
+                Continue Shopping
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <main class="success-container">
+
+
+        <!-- SUCCESS CARD -->
+
+        <section class="success-card">
+
+
+            <div class="success-icon">
+
+                ✓
+
+            </div>
+
+
+            <h1>
+                Order Confirmed!
+            </h1>
+
+
+            <p class="success-message">
+
+                Thank you for shopping with Valora.
+                Your order has been successfully placed
+                and is now being prepared by the seller.
+
+            </p>
+
+
+            <!-- ORDER NUMBER -->
+
+            <div class="order-number">
+
+                <span>
+                    Order Number
+                </span>
+
+                <strong>
+                    #VAL-2026-0826
+                </strong>
+
+            </div>
+
+
+            <!-- ORDER DETAILS -->
+
+            <div class="order-details">
+
+
+                <div class="detail">
+
+                    <span>
+                        Order Date
+                    </span>
+
+                    <strong>
+                        August 26, 2026
+                    </strong>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span>
+                        Payment
+                    </span>
+
+                    <strong>
+                        Cash on Delivery
+                    </strong>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong>
+                        ₱2,278
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="actions">
+
+                <a href="shop.html"
+                   class="primary-btn">
+
+                    CONTINUE SHOPPING
+
+                </a>
+
+
+                <a href="#"
+                   class="secondary-btn">
+
+                    VIEW ORDER
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- NEXT STEPS -->
+
+        <section class="next-section">
+
+
+            <h2>
+                What happens next?
+            </h2>
+
+
+            <div class="steps">
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Order Confirmed
+                    </h3>
+
+                    <p>
+                        Your order has been received
+                        and confirmed.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h3>
+                        Preparing
+                    </h3>
+
+                    <p>
+                        The seller will prepare your
+                        items for shipment.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h3>
+                        On the Way
+                    </h3>
+
+                    <p>
+                        Your courier will deliver
+                        your order to you.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+            VALORA
+        </h2>
+
+        <p>
+            Simple shopping. Better experiences.
+        </p>
+
+
+        <div class="copyright">
+
+            © 2026 Valora. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

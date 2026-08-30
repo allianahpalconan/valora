@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Valora | Login</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f4f9;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            width: 900px;
+            min-height: 520px;
+
+            background: white;
+
+            display: flex;
+
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+        }
+
+        /* LEFT SIDE */
+
+        .login-left {
+            width: 45%;
+
+            background: #4b2673;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding: 55px;
+        }
+
+        .login-left h1 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .login-left p {
+            color: #ddd2e5;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .brand {
+            font-size: 25px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 60px;
+        }
+
+        /* RIGHT SIDE */
+
+        .login-right {
+            width: 55%;
+
+            padding: 60px;
+        }
+
+        .login-right h2 {
+            font-size: 27px;
+
+            margin-bottom: 8px;
+
+            color: #24152f;
+        }
+
+        .subtitle {
+            color: #88818c;
+
+            font-size: 12px;
+
+            margin-bottom: 35px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            color: #403747;
+        }
+
+        .input-group input {
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ddd6e1;
+
+            outline: none;
+
+            font-size: 12px;
+        }
+
+        .input-group input:focus {
+            border-color: #4b2673;
+        }
+
+        .forgot {
+            display: block;
+
+            text-align: right;
+
+            color: #4b2673;
+
+            font-size: 11px;
+
+            margin-bottom: 25px;
+        }
+
+        .login-button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            background: #4b2673;
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background: #32194f;
+        }
+
+        .register {
+            text-align: center;
+
+            margin-top: 25px;
+
+            font-size: 11px;
+
+            color: #77707b;
+        }
+
+        .register a {
+            color: #4b2673;
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .login-container {
+                width: 90%;
+
+                flex-direction: column;
+            }
+
+            .login-left,
+            .login-right {
+                width: 100%;
+            }
+
+            .login-left {
+                padding: 35px;
+            }
+
+            .brand {
+                margin-bottom: 25px;
+            }
+
+            .login-right {
+                padding: 35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="login-container">
+
+
+        <!-- LEFT -->
+
+        <div class="login-left">
+
+            <div class="brand">
+                VALORA
+            </div>
+
+            <h1>
+                Welcome Back.
+            </h1>
+
+            <p>
+                Sign in to your Valora account
+                and continue your shopping journey.
+            </p>
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="login-right">
+
+            <h2>
+                Sign In
+            </h2>
+
+            <p class="subtitle">
+                Enter your account details below.
+            </p>
+
+
+            <form
+                onsubmit="loginUser(event)"
+            >
+
+
+                <div class="input-group">
+
+                    <label>
+                        EMAIL ADDRESS
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        PASSWORD
+                    </label>
+
+                    <input
+                        type="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <a href="#"
+                   class="forgot">
+
+                    Forgot password?
+
+                </a>
+
+
+                <button
+                    type="submit"
+                    class="login-button">
+
+                    LOGIN
+
+                </button>
+
+
+            </form>
+
+
+            <p class="register">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create one
+                </a>
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+        function loginUser(event) {
+
+            event.preventDefault();
+
+            window.location.href =
+                "buyer-dashboard.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

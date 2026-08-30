@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Valora | Shopping Cart</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+
+            color: #24152f;
+
+            background: #f8f6f9;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+
+            height: 78px;
+
+            padding: 0 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background: #4b2673;
+
+            border-bottom: 1px solid #eee9f1;
+        }
+
+
+        .logo {
+
+            font-size: 26px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            color: white;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 32px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+
+            color: #4c4650;
+
+            font-size: 14px;
+        }
+
+
+        .nav-links a:hover {
+
+            color: #4b2673;
+        }
+
+
+        .nav-actions {
+
+            display: flex;
+
+            gap: 20px;
+
+            align-items: center;
+        }
+
+
+        .login {
+
+            color: #4b2673;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .cart-icon {
+
+            color: #4b2673;
+
+            font-size: 18px;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        .page-header {
+
+            background: #f0eaf4;
+
+            padding: 55px 7%;
+        }
+
+
+        .page-header h1 {
+
+            font-size: 38px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .page-header p {
+
+            font-size: 13px;
+
+            color: #77707b;
+        }
+
+
+        /* ================= CART ================= */
+
+        .cart-container {
+
+            padding: 55px 7% 90px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 330px;
+
+            gap: 35px;
+
+            max-width: 1400px;
+
+            margin: auto;
+        }
+
+
+        /* ================= ITEMS ================= */
+
+        .cart-items {
+
+            background: white;
+
+            border: 1px solid #eee9f1;
+        }
+
+
+        .cart-title {
+
+            padding: 25px;
+
+            border-bottom: 1px solid #eee9f1;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+
+        .cart-item {
+
+            padding: 25px;
+
+            display: grid;
+
+            grid-template-columns: 110px 1fr auto;
+
+            gap: 20px;
+
+            align-items: center;
+
+            border-bottom: 1px solid #eee9f1;
+        }
+
+
+        .item-image {
+
+            height: 110px;
+
+            background: #f5f1f7;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #9b8ca4;
+
+            font-size: 11px;
+        }
+
+
+        .item-category {
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            color: #8a7b94;
+
+            margin-bottom: 7px;
+        }
+
+
+        .item-name {
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            margin-bottom: 8px;
+        }
+
+
+        .item-details {
+
+            color: #817884;
+
+            font-size: 11px;
+
+            line-height: 1.7;
+        }
+
+
+        .item-price {
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            color: #4b2673;
+
+            margin-top: 10px;
+        }
+
+
+        /* ================= QUANTITY ================= */
+
+        .quantity {
+
+            display: flex;
+
+            align-items: center;
+
+            border: 1px solid #ddd6e1;
+        }
+
+
+        .quantity button {
+
+            width: 30px;
+
+            height: 30px;
+
+            background: white;
+
+            border: none;
+
+            cursor: pointer;
+
+            color: #4b2673;
+        }
+
+
+        .quantity span {
+
+            width: 30px;
+
+            text-align: center;
+
+            font-size: 12px;
+        }
+
+
+        .remove {
+
+            display: block;
+
+            margin-top: 10px;
+
+            color: #9a909f;
+
+            font-size: 10px;
+
+            text-align: right;
+        }
+
+
+        .remove:hover {
+
+            color: #4b2673;
+        }
+
+
+        /* ================= SUMMARY ================= */
+
+        .summary {
+
+            background: white;
+
+            border: 1px solid #eee9f1;
+
+            padding: 28px;
+
+            height: fit-content;
+
+            position: sticky;
+
+            top: 100px;
+        }
+
+
+        .summary h2 {
+
+            font-size: 18px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .summary-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 12px;
+
+            color: #77707b;
+
+            margin-bottom: 15px;
+        }
+
+
+        .summary-total {
+
+            border-top: 1px solid #eee9f1;
+
+            padding-top: 18px;
+
+            margin-top: 10px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .summary-total span:first-child {
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        .total-price {
+
+            color: #4b2673;
+
+            font-size: 20px;
+
+            font-weight: 700;
+        }
+
+
+        .checkout-btn {
+
+            display: block;
+
+            width: 100%;
+
+            text-align: center;
+
+            background: #4b2673;
+
+            color: white;
+
+            padding: 14px;
+
+            margin-top: 25px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        .checkout-btn:hover {
+
+            background: #32194f;
+        }
+
+
+        .continue {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            color: #4b2673;
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+
+        /* ================= PROMO ================= */
+
+        .voucher {
+
+            margin-top: 25px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid #eee9f1;
+        }
+
+
+        .voucher-title {
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            margin-bottom: 10px;
+        }
+
+
+        .voucher-box {
+
+            display: flex;
+        }
+
+
+        .voucher-box input {
+
+            flex: 1;
+
+            border: 1px solid #ddd6e1;
+
+            padding: 10px;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 11px;
+        }
+
+
+        .voucher-box button {
+
+            border: none;
+
+            background: #f0eaf4;
+
+            color: #4b2673;
+
+            padding: 0 15px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            background: #24152f;
+
+            color: white;
+
+            padding: 55px 7% 25px;
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            margin-bottom: 40px;
+        }
+
+
+        .footer-brand h2 {
+
+            font-size: 24px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .footer-brand p {
+
+            color: #bdb2c4;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            max-width: 300px;
+        }
+
+
+        .footer-column h3 {
+
+            font-size: 12px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .footer-column a {
+
+            display: block;
+
+            color: #bdb2c4;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .copyright {
+
+            border-top: 1px solid #44344d;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            color: #928698;
+
+            font-size: 11px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+
+                display: none;
+            }
+
+
+            .cart-container {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .summary {
+
+                position: static;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .cart-item {
+
+                grid-template-columns: 80px 1fr;
+            }
+
+
+            .cart-item > .quantity-wrapper {
+
+                grid-column: 2;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <a href="index.html"
+           class="logo">
+
+            VALORA
+
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="shop.html">
+                    Shop
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Categories
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Deals
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    About
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-actions">
+
+            <a href="login.html"
+               class="login">
+
+                Login
+
+            </a>
+
+
+            <a href="cart.html"
+               class="cart-icon">
+
+                🛒
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <section class="page-header">
+
+        <h1>
+            Shopping Cart
+        </h1>
+
+        <p>
+            Review your items before checkout.
+        </p>
+
+    </section>
+
+
+    <!-- ================= CART ================= -->
+
+    <main class="cart-container">
+
+
+        <!-- CART ITEMS -->
+
+        <section class="cart-items">
+
+
+            <div class="cart-title">
+
+                Your Items
+
+            </div>
+
+
+            <!-- ITEM 1 -->
+
+            <div class="cart-item">
+
+
+                <div class="item-image">
+
+                    Product Image
+
+                </div>
+
+
+                <div>
+
+                    <div class="item-category">
+                        Fashion
+                    </div>
+
+                    <div class="item-name">
+                        Classic Everyday Sneakers
+                    </div>
+
+                    <div class="item-details">
+
+                        Size: 8<br>
+
+                        Color: White
+
+                    </div>
+
+                    <div class="item-price">
+                        ₱1,299
+                    </div>
+
+                </div>
+
+
+                <div class="quantity-wrapper">
+
+                    <div class="quantity">
+
+                        <button>
+                            −
+                        </button>
+
+                        <span>
+                            1
+                        </span>
+
+                        <button>
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <a href="#"
+                       class="remove">
+
+                        Remove
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ITEM 2 -->
+
+            <div class="cart-item">
+
+
+                <div class="item-image">
+
+                    Product Image
+
+                </div>
+
+
+                <div>
+
+                    <div class="item-category">
+                        Electronics
+                    </div>
+
+                    <div class="item-name">
+                        Wireless Headphones
+                    </div>
+
+                    <div class="item-details">
+
+                        Color: Black
+
+                    </div>
+
+                    <div class="item-price">
+                        ₱899
+                    </div>
+
+                </div>
+
+
+                <div class="quantity-wrapper">
+
+                    <div class="quantity">
+
+                        <button>
+                            −
+                        </button>
+
+                        <span>
+                            1
+                        </span>
+
+                        <button>
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <a href="#"
+                       class="remove">
+
+                        Remove
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <aside class="summary">
+
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span>
+                    ₱2,198
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Shipping
+                </span>
+
+                <span>
+                    ₱80
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Discount
+                </span>
+
+                <span>
+                    − ₱0
+                </span>
+
+            </div>
+
+
+            <div class="summary-total">
+
+                <span>
+                    Total
+                </span>
+
+                <span class="total-price">
+                    ₱2,278
+                </span>
+
+            </div>
+
+
+            <!-- VOUCHER -->
+
+            <div class="voucher">
+
+                <div class="voucher-title">
+
+                    HAVE A VOUCHER?
+
+                </div>
+
+
+                <div class="voucher-box">
+
+                    <input
+                        type="text"
+                        placeholder="Enter voucher code"
+                    >
+
+
+                    <button>
+                        APPLY
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <a href="checkout.html"
+               class="checkout-btn">
+
+                PROCEED TO CHECKOUT
+
+            </a>
+
+
+            <a href="shop.html"
+               class="continue">
+
+                ← Continue Shopping
+
+            </a>
+
+        </aside>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    VALORA
+                </h2>
+
+                <p>
+
+                    A modern e-commerce platform
+                    designed to make online shopping
+                    simple, convenient, and enjoyable.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    SHOP
+                </h3>
+
+                <a href="shop.html">
+                    Products
+                </a>
+
+                <a href="#">
+                    Categories
+                </a>
+
+                <a href="#">
+                    Deals
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    ACCOUNT
+                </h3>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="register.html">
+                    Register
+                </a>
+
+                <a href="#">
+                    My Orders
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    SUPPORT
+                </h3>
+
+                <a href="#">
+                    Contact Us
+                </a>
+
+                <a href="#">
+                    FAQs
+                </a>
+
+                <a href="#">
+                    Terms & Conditions
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Valora. All Rights Reserved.
+
+        </div>
+
+
+    </footer>
+
+
+</body>
+
+</html>
